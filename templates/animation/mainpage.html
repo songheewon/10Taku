@@ -16,12 +16,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
 </head>
 <body>
-<!-- 헤더 (로고 및 로그아웃 버튼) -->
+<!-- 헤더 부분 -->
 <header class="header">
     <!-- 로고 -->
     <button class="logo" onClick="window.location.reload()"><b>10 Taku</b></button>
 
-    <!-- 회원 정보 (북마크, 좋아요, 로그아웃) -->
+    <!-- 회원 정보 (로그인된 닉네임, 북마크, 좋아요, 로그아웃) -->
     <div class="user-info">
         <p class="logout" id="user-logout">
             <i class="fa-solid fa-right-from-bracket" id="logout-icon"></i> <span id="loginout"
@@ -38,18 +38,26 @@
         </p>
     </div>
 </header>
+
+<!-- 헤더 외의 부분 -->
 <div class="main-body">
+    <!-- 장르 이름, 더보기 버튼 -->
     <header class="genre-header">
         <div class="genre-name"><i class="fa-regular fa-folder-open"></i> 장르 1</div>
         <button class="more-button">+ 더보기</button>
     </header>
+    <!-- 장르별 애니메이션 출력 부분 -->
     <div class="genre">
+        <!-- 하나의 애니메이션 정보(사진, 제목, 장르) 출력 단위 -->
         <div class="col">
             <div class="animation-info">
+                <!-- 애니메이션 포스터 -->
                 <img src="https://img2.yna.co.kr/photo/yna/YH/2013/09/08/PYH2013090801520000500_P2.jpg"
                      class="card-img-top">
                 <div class="card-body">
+                    <!-- 애니메이션 제목 -->
                     <h3 class="card-title">진격의 거인</h3>
+                    <!-- 애니메이션 장르 -->
                     <h5 class="card-genre">판타지, 액션</h5>
                 </div>
             </div>

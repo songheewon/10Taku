@@ -59,8 +59,7 @@ AI가 사용자에게 애니메이션을 추천해주는 프로그램입니다.
 #### 📕 <a href="https://docs.google.com/spreadsheets/d/1u2awAMkEIl7eGeQn5O7iANxGBe3wZ578TkSjS4y5MwY/edit?usp=sharing">API 설계</a>
 <br><br>
 ## DB 설계 ERD  
-여기에 이미지 삽입
-
+![image](https://user-images.githubusercontent.com/44194990/171596605-422ef533-58ad-4389-a031-0e08d4e83762.png)
 
 ## 📢 <a href="https://www.youtube.com">발표 영상</a>
 

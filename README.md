@@ -56,7 +56,7 @@ AI가 사용자에게 애니메이션을 추천해주는 프로그램입니다.
 
 ## <a href="https://github.com/NotEasyTeam/Animation-Recommendation/wiki">📂 Github Wiki</a>
 #### 🔨 <a href="https://docs.google.com/presentation/d/1j6QE8TeJI6S9dn34Lf-_TeOoBDofJvkdfaHV4W7TQeo/edit?usp=sharing">개발 목업</a>
-#### 📕 <a href="https://docs.google.com/spreadsheets/d/1u2awAMkEIl7eGeQn5O7iANxGBe3wZ578TkSjS4y5MwY/edit?usp=sharing">API 설계</a>
+#### 📕 <a href="https://docs.google.com/spreadsheets/d/1U5XLYUx1arjF-M-XEOD9d2E0mnQH_5hT8s7q26umw2g/edit?usp=sharing">API 설계</a>
 <br><br>
 ## DB 설계 ERD  
 ![image](https://user-images.githubusercontent.com/44194990/171596605-422ef533-58ad-4389-a031-0e08d4e83762.png)

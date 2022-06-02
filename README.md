@@ -25,7 +25,7 @@
 </div>
 <br><br><br>
 
-## <a href="https://github.com/NotEasyTeam/Recycle-frontend/wiki">📂 Github Wiki</a>
+## <a href="https://github.com/NotEasyTeam/Animation-Recommendation/wiki">📂 Github Wiki</a>
 #### 🔨 <a href="https://docs.google.com/presentation/d/1ILz_hCpGhEqjjYUBSzA4PlCCpyT19AfUJDznsRecDr8/edit?usp=sharing">개발 목업</a>
 #### 📕 <a href="https://docs.google.com/spreadsheets/d/1u2awAMkEIl7eGeQn5O7iANxGBe3wZ578TkSjS4y5MwY/edit?usp=sharing">API 및 DB 설계</a>
 <br><br><br>

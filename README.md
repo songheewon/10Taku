@@ -1,25 +1,16 @@
 
 <!-- ABOUT THE PROJECT -->
 ## 🎇프로젝트 소개 
-### 👉🏻 프로젝트 명 10Taku  
-
+### 👉🏻 프로젝트 명 
+10Taku  
 ### 🎞 애니메이션 추천 시스템
-AI가 사용자에게 애니메이션을 추천해주는 프로그램입니다.  
-애니메이션 입문한 분들 혹은 이미 좋아하시는 분들을 위한 애니메이션 추천 사이트
+AI가 사용자에게 애니메이션을 추천해주는 프로그램입니다.
+처음 애니메이션에 입문한 분들 혹은 이미 좋아하시는 분들을 위한 애니메이션 추천 사이트입니다.
 <br><br><br>  
 
 
 
 ## ✍개발 스택
-
-<div style="display:flex;">
-    <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> 
-    <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
-    <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
-    <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white">
-    <img src="https://img.shields.io/badge/django-000000?style=for-the-badge&logo=django&logoColor=white">
-</div>
-<h3 align="left">언어 및 개발툴</h3>
 <p align="left"> 
     <a href="https://www.python.org" target="_blank" rel="noreferrer"> 
         <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> 
@@ -51,7 +42,7 @@ AI가 사용자에게 애니메이션을 추천해주는 프로그램입니다.
 
 
 
-## 🤦🏻‍♂️🤦🏻‍♀️팀원 및 역할분담
+## 🤦🏻‍♂️🤦10지않조 팀원 및 역할분담
 <b>김규민</b><br>프론트엔드 - 상세 페이지, 댓글 모달창<br> 백엔드 - 상세 정보 출력 기능, 추천/비추천 기능, 댓글 기능, 좋아요 내역 출력 기능<br><br>
 <b>김민석</b><br>프론트엔드 - 로그인/회원가입 페이지<br> 백엔드 - 로그인/회원가입 기능<br><br>
 <b>김철현</b><br>백엔드 - 북마크 기능, 북마크 내역 출력 기능<br><br>

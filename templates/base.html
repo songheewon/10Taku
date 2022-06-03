@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>10Taku</title>
+    <title>{% block title %}{% endblock %} | 10Taku</title>
 
     <!-- CSS -->
     <link href="{% static 'style/mainpage.css' %}" rel="stylesheet">
@@ -49,8 +49,6 @@
     </div>
 
 </header>
-
-
 {% block content %}
 
 {% endblock %}

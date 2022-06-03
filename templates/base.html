@@ -7,7 +7,9 @@
 
     <!-- CSS -->
     <link href="{% static 'style/mainpage.css' %}" rel="stylesheet">
+    {% block css %}
 
+    {% endblock %}
     <!-- Icon (Font Awesome) -->
     <script src="https://kit.fontawesome.com/989420847f.js" crossorigin="anonymous"></script>
 
@@ -34,7 +36,8 @@
     <!-- 회원 정보 (로그인된 닉네임, 북마크, 좋아요, 로그아웃) -->
     <div class="user-info">
         <p class="username" id="user-name">
-            <i class="fa-solid fa-user"></i><span id="username" class="user-txt">씹덕</span> <span class="user-txt">님</span>
+            <i class="fa-solid fa-user"></i><span id="username" class="user-txt">씹덕</span> <span
+                class="user-txt">님</span>
         </p>
         <p class="liked" id="user-liked">
             <i class="fa-solid fa-heart"></i> <span id="userliked" class="like-txt">추천</span>

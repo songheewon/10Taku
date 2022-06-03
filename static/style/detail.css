@@ -96,8 +96,25 @@
 }
 
 .modal-content {
-    background-color: black;
+    background-color: rgb(30, 30, 30);
     width: 478px;
     height: 100%;
-
 }
+
+.modal-body {
+    overflow: auto;
+}
+
+.modal-body::-webkit-scrollbar {
+    width: 10px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background-color: rgb(45, 45, 45);
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background-color: grey;
+}
+
+body.modal-open { overflow: hidden; }

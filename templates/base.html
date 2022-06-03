@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10Taku</title>
+
+    <!-- CSS -->
+    <link href="{% static 'style/mainpage.css' %}" rel="stylesheet">
+
+    <!-- Icon (Font Awesome) -->
+    <script src="https://kit.fontawesome.com/989420847f.js" crossorigin="anonymous"></script>
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- 헤더 부분 -->
+<header class="header">
+
+    <!-- 로고 -->
+    <button class="logo" onClick="window.location.reload()"><b>10 Taku</b></button>
+
+    <!-- 검색창 -->
+    <div class="search">
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="search_input_box" aria-label="입력 검색" class="search_input_box" autocapitalize="none"
+                   placeholder="검색" type="text" value="">
+        </div>
+    </div>
+    <!-- 회원 정보 (로그인된 닉네임, 북마크, 좋아요, 로그아웃) -->
+    <div class="user-info">
+        <p class="username" id="user-name">
+            <i class="fa-solid fa-user"></i><span id="username" class="user-txt">씹덕</span> <span class="user-txt">님</span>
+        </p>
+        <p class="liked" id="user-liked">
+            <i class="fa-solid fa-heart"></i> <span id="userliked" class="like-txt">추천</span>
+        </p>
+        <p class="bookmark" id="user-bookmark">
+            <i class="fa-solid fa-bookmark"></i> <span id="userbookmark" class="bookmark-txt">북마크</span>
+        </p>
+        <p class="logout" id="user-logout">
+            <i class="fa-solid fa-right-from-bracket" id="logout-icon"></i> <span class="logout-txt" id="loginout"
+                                                                                  onclick="logout()">로그아웃</span>
+        </p>
+    </div>
+
+</header>
+
+
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>

@@ -9,12 +9,14 @@ body {
 }
 
 .header {
-    background-color: rgb(30, 30, 30);
-    display: inline-block;
-    width: 97%;
-    height: 10%;
+    background-color: rgb(15, 15, 15);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 70px;
     position: fixed;
-    top: 0px;
     z-index: 9999;
 }
 
@@ -38,34 +40,37 @@ body {
 }
 
 .logo {
-    display: inline-block;
-    width: 10%;
-    margin-top: 1%;
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    height: 40px;
+    white-space : nowrap;
+    margin-top: 0.38%;
+    margin-left: 50px;
+    margin-right: 20px;
     border-color: transparent;
     background-color: transparent;
     cursor: pointer;
     font-size: 37px;
-    font-weight: border;
     animation: flicker 1.2s infinite alternate;
     color: #fff;
     font-family: 'Poor Story', cursive;
 }
 
 .search {
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
     text-align: center;
-    justify-content: center;
-    margin-left: 3%;
-    float: center;
-    width: 17%;
-    height: 43%;
+    max-width: 300px;
+    width: 100%;
 }
 
 .search-box {
     text-align: center;
-    justify-content: center
+    height: 30px;
+    max-width: 300px;
     width: 100%;
-    height: 90%;
+    margin-top: 6.5%;
     background-color: #f0f0f0;
     border-radius: 10px;
     border-width: 0;
@@ -82,6 +87,7 @@ body {
 .search_input_box {
     display: inline-block;
     text-align: left;
+    max-width: 300px;
     width: 80%;
     height: 92%;
     background-color: #f0f0f0;
@@ -92,24 +98,30 @@ body {
 }
 
 .user-info {
-    width: 49%;
-    display: inline-block;
-    float: right;
-    margin-top: 0.7%;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    white-space : nowrap;
+    justify-content: space-evenly;
+
+    margin-top: 0.34%;
     color: white;
 }
 
 .username, .bookmark, .liked, .logout {
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
     float: right;
     font-size: 18px;
     font-weight: bold;
-    margin-left: 3%;
-    margin-right: 3%;
-    height: 10%;
     background-color: transparent;
     border-color: transparent;
     transform: scale(1);
+}
+
+.logout-txt, .bookmark-txt, .like-txt, .user-txt {
+    margin-left: 10px;
+    margin-top: -3px;
 }
 
 .bookmark:hover {
@@ -207,4 +219,21 @@ body {
     transform: scale(1.1);
     position: relative;
     z-index: 1;
+}
+
+
+@media screen and (max-width: 640px) {
+
+    .search {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 640px) {
+
+    .username {
+        display: none;
+    }
+
 }

@@ -1,15 +1,92 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
     애니메이션 상세
 {% endblock %}
+{% block css %}
+    <link href="{% static 'style/detail.css' %}" rel="stylesheet">
+{% endblock %}
 
 {% block content %}
-    <div>
-        <h1>안녕</h1>
+    <!--- 전체 바디 ----->
+    <div class="detail-body">
+    <!--- 왼쪽단 상세설명 ----->
+        <div class="left-body">
+            <div class="anime-title-box">
+                <p class="anime-title">진격의 거인</p>
+            </div>
+            <div class="anime-info-body">
+                <img src="https://img2.yna.co.kr/photo/yna/YH/2013/09/08/PYH2013090801520000500_P2.jpg"
+                     class="detail-img">
+                <div class="anime-description">
+                    <p>이곳에는 내용들이 들어가게 됩니다.</p>
+                    <p>이곳에는 내용들이 들어가게 됩니다.</p>
+                    <p>이곳에는 내용들이 들어가게 됩니다.</p>
+                    <p>이곳에는 내용들이 들어가게 됩니다.</p>
+                    <p>이곳에는 내용들이 들어가게 됩니다.</p>
+                    <p>이곳에는 내용들이 들어가게 됩니다.</p>
+                    <p>이곳에는 내용들이 들어가게 됩니다.</p>
+                </div>
+            </div>
+            <div class="anime-summary-box">
+                <p>줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.</p>
+            </div>
+            <div class="anime-btn-box">
+                <button class="comment-btn">댓글 보기</button>
+                <button class="comment-btn">북마크 추가</button>
+                <button class="comment-btn">추천 하기</button>
+            </div>
+        </div>
+        <!--- 오른쪽단 애니추천 ----->
+        <div class="right-body">
+            <div style="color:white">
+                같은 장르 애니
+            </div>
+            <div>
+                <img src="https://img2.yna.co.kr/photo/yna/YH/2013/09/08/PYH2013090801520000500_P2.jpg"
+                     class="recommend-img"> <span style="color:white">진격의 거인</span>
+            </div>
+            <div>
+                <img src="https://img2.yna.co.kr/photo/yna/YH/2013/09/08/PYH2013090801520000500_P2.jpg"
+                     class="recommend-img"> <span style="color:white">진격의 거인</span>
+            </div>
+            <div>
+                <img src="https://img2.yna.co.kr/photo/yna/YH/2013/09/08/PYH2013090801520000500_P2.jpg"
+                     class="recommend-img"> <span style="color:white">진격의 거인</span>
+            </div>
+            <div>
+                <img src="https://img2.yna.co.kr/photo/yna/YH/2013/09/08/PYH2013090801520000500_P2.jpg"
+                     class="recommend-img"> <span style="color:white">진격의 거인</span>
+            </div>
+            <div>
+                <img src="https://img2.yna.co.kr/photo/yna/YH/2013/09/08/PYH2013090801520000500_P2.jpg"
+                     class="recommend-img"> <span style="color:white">진격의 거인</span>
+            </div>
+            <div style="color:white; border-top: 1px solid rgb(55, 55, 55)">
+                업데이트
+            </div>
+            <div>
+                <img src="https://img2.yna.co.kr/photo/yna/YH/2013/09/08/PYH2013090801520000500_P2.jpg"
+                     class="recommend-img"> <span style="color:white">진격의 거인</span>
+            </div>
+            <div>
+                <img src="https://img2.yna.co.kr/photo/yna/YH/2013/09/08/PYH2013090801520000500_P2.jpg"
+                     class="recommend-img"> <span style="color:white">진격의 거인</span>
+            </div>
+            <div>
+                <img src="https://img2.yna.co.kr/photo/yna/YH/2013/09/08/PYH2013090801520000500_P2.jpg"
+                     class="recommend-img"> <span style="color:white">진격의 거인</span>
+            </div>
+            <div>
+                <img src="https://img2.yna.co.kr/photo/yna/YH/2013/09/08/PYH2013090801520000500_P2.jpg"
+                     class="recommend-img"> <span style="color:white">진격의 거인</span>
+            </div>
+            <div>
+                <img src="https://img2.yna.co.kr/photo/yna/YH/2013/09/08/PYH2013090801520000500_P2.jpg"
+                     class="recommend-img"> <span style="color:white">진격의 거인</span>
+            </div>
+
+        </div>
     </div>
-
-
-
-
 {% endblock %}

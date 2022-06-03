@@ -4,10 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %} | 10Taku</title>
-
     <!-- CSS -->
+    {% block css %}
+
+    {% endblock %}
     <link href="{% static 'style/mainpage.css' %}" rel="stylesheet">
 
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <!-- Icon (Font Awesome) -->
     <script src="https://kit.fontawesome.com/989420847f.js" crossorigin="anonymous"></script>
 
@@ -34,7 +39,8 @@
     <!-- 회원 정보 (로그인된 닉네임, 북마크, 좋아요, 로그아웃) -->
     <div class="user-info">
         <p class="username" id="user-name">
-            <i class="fa-solid fa-user"></i><span id="username" class="user-txt">씹덕</span> <span class="user-txt">님</span>
+            <i class="fa-solid fa-user"></i><span id="username" class="user-txt">씹덕</span> <span
+                class="user-txt">님</span>
         </p>
         <p class="liked" id="user-liked">
             <i class="fa-solid fa-heart"></i> <span id="userliked" class="like-txt">추천</span>
@@ -52,6 +58,13 @@
 {% block content %}
 
 {% endblock %}
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>

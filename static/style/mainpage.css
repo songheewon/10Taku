@@ -194,10 +194,11 @@ body {
     display: flex;
     text-align: center;
     justify-content: center;
+    padding-left: 80px;
+    padding-right: 80px;
 }
 
 .col {
-    padding: 0.5%;
 }
 
 .card-img-top {
@@ -205,8 +206,16 @@ body {
     height: 300px;
 }
 
-.card-title, .card-genre {
+.card-title {
     color: white;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.card-genre {
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
 }
 
 .animation-info {

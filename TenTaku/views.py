@@ -6,9 +6,8 @@ def main_view(request):
 def detail_view(request):
     return render(request, 'animation/detail.html')
 
-
 def select_genre(request):
-    return render(request, 'animation/select_genre.html')
+    return render(request, 'user/select_genre.html')
 
 def genre_view(request):
     return render(request, 'animation/genrepage.html')
@@ -26,9 +25,5 @@ def sign_up_view(request):
     return render(request, 'user/sign_up.html')
 
 def login_view(request):
-<<<<<<< HEAD
-    return render(request, 'user/login.html')
-=======
     return render(request, 'user/login.html')
 
->>>>>>> develop

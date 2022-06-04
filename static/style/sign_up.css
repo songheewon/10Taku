@@ -1,0 +1,81 @@
+body {
+    background: #181818;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-family: 'Poor Story', cursive;
+
+}
+
+.login_content {
+    padding: 20px;
+    text-align: center;
+    width: 400px;
+    height: 550px;
+    margin-top: 180px;
+    background-color: rgb(30, 30, 30);
+    border-radius: 7%;
+
+
+}
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow: 0 0 4px rgb(0, 0, 179),
+        0 0 11px #fff,
+        0 0 19px rgb(0, 0, 179),
+        0 0 25px #fff,
+        0 0 40px rgb(0, 0, 179),
+        0 0 67px #fff,
+        0 0 80px rgb(0, 0, 179),
+        0 0 90px #fff,
+        0 0 100px rgb(0, 0, 179),
+        0 0 128px #fff,
+        0 0 150px rgb(0, 0, 179);
+    }
+    20%, 24%, 55%, 78% {
+        text-shadow: none;
+    }
+}
+
+.takulogo {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    height: 30px;
+    white-space: nowrap;
+    margin-top: 0.38%;
+    margin-left: 110px;
+    margin-right: 20px;
+    border-color: transparent;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 37px;
+    animation: flicker 1.2s infinite alternate;
+    color: #fff;
+    font-family: 'Poor Story', cursive;
+}
+
+.login-input-layer {
+    margin-top: 70px;
+    margin-bottom: 100px;
+}
+
+
+.input-user-data {
+    font-size: 14px;
+    width: 258px;
+}
+
+.btn {
+    width: 258px;
+    background-image: linear-gradient(to left top, #7df9e9, #7df6e0, #7ef3d6, #7fefcc, #82ecc2, #78edb7, #71edab, #6ced9d, #5cf187, #51f46c, #4cf64b, #4ef804);
+    border: none;
+}
+
+.input-info {
+    font-size: 14px;
+}
+

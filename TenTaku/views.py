@@ -5,3 +5,12 @@ def main_view(request):
 
 def detail_view(request):
     return render(request, 'animation/detail.html')
+
+def genre_view(request):
+    return render(request, 'animation/bookmark.html')
+
+def sign_up_view(request):
+    return render(request, 'user/sign_up.html')
+
+def lgoin_view(request):
+    return render(request, 'user/login.html')

@@ -19,7 +19,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
     path('main/', views.main_view, name='mainpage'),
     path('genre/', views.genre_view, name='genrepage'),
     path('recommend/', views.my_rec_view, name='genrepage'),

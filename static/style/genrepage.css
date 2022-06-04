@@ -1,0 +1,55 @@
+.main-body {
+    display: inline-block;
+    width: 100%;
+    margin-top: 5%;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Poor Story', cursive;
+}
+
+.notice {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.genres {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 1%;
+}
+
+.genre-row {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1%;
+    height: 80%;
+}
+
+.col {
+}
+
+.card-img-top {
+    filter :brightness(0) invert(1);
+}
+
+.genre-title {
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.genre-info {
+    width: 80%;
+    text-align: center;
+    cursor: pointer;
+    transform: scale(1);
+    transition: all 0.3s ease-in-out;
+}
+
+.genre-info:hover {
+    transform: scale(1.1);
+}

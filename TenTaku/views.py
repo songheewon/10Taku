@@ -6,11 +6,16 @@ def main_view(request):
 def detail_view(request):
     return render(request, 'animation/detail.html')
 
+
+def select_genre(request):
+    return render(request, 'animation/genrepage.html')
+
 def genre_view(request):
     return render(request, 'animation/bookmark.html')
 
 def sign_up_view(request):
     return render(request, 'user/sign_up.html')
 
-def lgoin_view(request):
+def login_view(request):
     return render(request, 'user/login.html')
+

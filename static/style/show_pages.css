@@ -1,0 +1,102 @@
+
+.main-body {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 5%;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Poor Story', cursive;
+}
+
+.genre-header {
+    display: flex;
+    flex-direction: row;
+    width: 220px;
+    margin-top: 1%;
+    margin-bottom: 0.5%;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.genre-name {
+    display: inline-block;
+    text-align: left;
+    white-space: nowrap;
+    float: left;
+    margin-left: 40%;
+    width: 100%;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.more-button {
+    display: inline-block;
+    background-color: transparent;
+    border-color: transparent;
+    text-align: right;
+    float: right;
+    margin-right: 3.5%;
+    width: 5%;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.more-button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: all 0.25s ease-in-out;
+}
+
+.genre {
+    width: 1400px;
+    height: 900px;
+    margin-right: 160px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.genre-anime {
+    width: 1350px;
+    display: flex;
+    flex-flow: row wrap;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.col {
+}
+
+.card-img-top {
+    width: 200px;
+    height: 300px;
+}
+
+.card-title {
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.card-genre {
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.animation-info {
+    cursor: pointer;
+    transform: scale(1);
+    transition: all 0.3s ease-in-out;
+}
+
+.animation-info:hover {
+    transform: scale(1.1);
+    position: relative;
+    z-index: 1;
+}
+
+

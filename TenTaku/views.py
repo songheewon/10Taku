@@ -8,7 +8,7 @@ def detail_view(request):
 
 
 def select_genre(request):
-    return render(request, 'animation/genrepage.html')
+    return render(request, 'animation/select_genre.html')
 
 def genre_view(request):
     return render(request, 'animation/bookmark.html')

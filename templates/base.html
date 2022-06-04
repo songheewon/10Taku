@@ -25,7 +25,7 @@
 <!-- 헤더 부분 -->
 <header class="header">
     <!-- 로고 -->
-    <button class="logo" onClick="window.location.reload()"><b>10 Taku</b></button>
+    <button class="logo" onclick="window.location.replace('/main')"><b>10 Taku</b></button>
     <!-- 검색창 -->
     <div class="search">
         <div class="search-box">
@@ -40,10 +40,10 @@
             <i class="fa-solid fa-user"></i><span id="username" class="user-txt">씹덕</span> <span
                 class="user-txt">님</span>
         </p>
-        <p class="liked" id="user-liked">
+        <p class="liked" id="user-liked" onclick="window.location.replace('/recommend')">
             <i class="fa-solid fa-heart"></i> <span id="userliked" class="like-txt">추천</span>
         </p>
-        <p class="bookmark" id="user-bookmark">
+        <p class="bookmark" id="user-bookmark" onclick="window.location.replace('/bookmark')">
             <i class="fa-solid fa-bookmark"></i> <span id="userbookmark" class="bookmark-txt">북마크</span>
         </p>
         <p class="logout" id="user-logout">

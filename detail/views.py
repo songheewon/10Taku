@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def show_detail_view(request):
+    return render(request, 'animation/detail.html')

@@ -52,6 +52,7 @@
             </div>
             <div class="anime-btn-box">
                 <a href="#">
+{#                <a href="/comment/{{ animation.id }}">#}
                     <button class="comment-btn" data-toggle="modal" data-target="#commentmodal">
                         <span>댓글 12개 보기</span></button>
                 </a>
@@ -124,6 +125,8 @@
                                                 <h5 class="mt-0">댓글을 적어주세요</h5>
                                                 <p>
                                                 <form action="#" method="post">
+{#                                                <form action={%url comment animation.id%} method="post">#}
+
                                                     {% csrf_token %}
                                                     <div class="form-group mb-2">
                                                     <textarea class="form-control" style="resize: none"

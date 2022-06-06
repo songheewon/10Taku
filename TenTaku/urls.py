@@ -22,7 +22,6 @@ urlpatterns = [
     path('main/', views.main_view, name='mainpage'),
     path('before-start/', views.select_genre, name='selectgenre'),
     path('genre/', views.genre_view, name='genrepage'),
-    path('recommend/', views.my_rec_view, name='genrepage'),
     path('search/', views.search_view, name='genrepage'),
     path('bookmark/', views.bookmark_view, name='genrepage'),
     path('signup/', views.sign_up_view, name='signup'),

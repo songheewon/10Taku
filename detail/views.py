@@ -13,7 +13,7 @@ def show_detail_view(request):
 # @login_required
 def animation_detail(request, id):
     animation = Animation.objects.get(id=id)
-    print(animation.title)
+    print(animation.story)
     genres = Genre.objects.filter(animation__id=id).values()
     genre_list = []
     if len(genres) > 0:

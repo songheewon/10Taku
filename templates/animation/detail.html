@@ -17,10 +17,10 @@
         <!--- 왼쪽단 상세설명 ----->
         <div class="left-body">
             <div class="anime-title-box">
-                <p class="anime-title">진격의 거인</p>
+                <p class="anime-title">{{ animation.title }}</p>
             </div>
             <div class="anime-info-body">
-                <img src="https://img2.yna.co.kr/photo/yna/YH/2013/09/08/PYH2013090801520000500_P2.jpg"
+                <img src="{{ animation.img }}"
                      class="detail-img">
                 <div class="anime-description">
                     <div class="anime-description-detail-title">
@@ -32,26 +32,22 @@
                         <p>회차</p>
                     </div>
                     <div class="anime-description-detail">
-                        <p class="anime-detail">이곳에는 내용들이 들어가게 됩니다.</p>
-                        <p class="anime-detail">이곳에는 내용들이 들어가게 됩니다.</p>
-                        <p class="anime-detail">이곳에는 내용들이 들어가게 됩니다.</p>
-                        <p class="anime-detail">이곳에는 내용들이 들어가게 됩니다.</p>
-                        <p class="anime-detail">이곳에는 내용들이 들어가게 됩니다.</p>
-                        <p class="anime-detail">이곳에는 내용들이 들어가게 됩니다.</p>
+                        <p class="anime-detail">{{ animation.original_title }}</p>
+                        <p class="anime-detail">{{ genre }}</p>
+                        <p class="anime-detail">{{ animation.company }}</p>
+                        <p class="anime-detail">{{ animation.rated }}</p>
+                        <p class="anime-detail">{{ animation.broadcasted_date }}</p>
+                        <p class="anime-detail">{{ animation.chapters }}</p>
                     </div>
 
                 </div>
             </div>
             <div class="anime-summary-box">
-                <p>줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에
-                    들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게
-                    됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에
-                    들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게
-                    됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에
-                    들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다..</p>
+                <p style="text-align: left">줄거리</p><p>{{ animation.story }}</p>
             </div>
             <div class="anime-btn-box">
                 <a href="#">
+{#                <a href="/comment/{{ animation.id }}">#}
                     <button class="comment-btn" data-toggle="modal" data-target="#commentmodal">
                         <span>댓글 12개 보기</span></button>
                 </a>
@@ -124,6 +120,8 @@
                                                 <h5 class="mt-0">댓글을 적어주세요</h5>
                                                 <p>
                                                 <form action="#" method="post">
+{#                                                <form action={%url comment animation.id%} method="post">#}
+
                                                     {% csrf_token %}
                                                     <div class="form-group mb-2">
                                                     <textarea class="form-control" style="resize: none"

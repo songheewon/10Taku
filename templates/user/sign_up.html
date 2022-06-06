@@ -22,34 +22,43 @@
     <div class="mainbox1" style="margin-top:30px">
         <button class="takulogo" onClick="window.location.reload()"><b>10 Taku</b></button>
     </div>
-    <div class="login-input-layer">
-        <div class="form-floating mb-3 field has-addons" style="margin-top: 30px; margin-left: 50px">
-            <input type="text" class="form-control input-user-data" id="userid" onclick=""
-                   style="height: 40px;" placeholder="id..">
-            <label class="input-info">이름</label>
+    <form class="form-area" method="post" action="/sign_up/">
+        {% csrf_token %}
+        <div class="login-input-layer">
+            <div class="form-floating mb-3 field has-addons" style="margin-top: 30px; margin-left: 50px">
+                <input type="text" class="form-control input-user-data" id="username"
+                       style="height: 40px;" placeholder="name.." name="username">
+                <label class="input-info">이름</label>
+            </div>
+            <div class="form-floating mb-3" style="margin-left: 50px; margin-top: 30px">
+                <input type="text" class="form-control input-user-data" style="height: 40px;"
+                       placeholder="id..." name="userid" id="userid">
+                <label class="input-info">ID</label>
+            </div>
+            <div class="form-floating mb-3" style="margin-left: 50px; margin-top: 30px">
+                <input type="password" class="form-control input-user-data" style="height: 40px;"
+                       placeholder="password..." name="password" id="password">
+                <label class="input-info">PW</label>
+            </div>
+            <div class="form-floating mb-3" style="margin-left: 50px; margin-top: 30px">
+                <input type="password" class="form-control input-user-data" style="height: 40px;"
+                       placeholder="password..." name="password2" id="password2">
+                <label class="input-info">PW확인</label>
+            </div>
+            <div class="btndiv" style="margin-top: 30px">
+                <button class="signupbtn"
+                        style="height: 40px; border: 1px solid whitesmoke; border-radius: 8%; width:258px"
+                        type="submit">
+                    회원가입
+                </button>
+                <div class="ask-sign" style="margin-top: 20px; color: hotpink"> 이미 10Taku 냐능?
+                    <a class="go-to-login" href="/login">
+                        로그인 하기
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="form-floating mb-3" style="margin-left: 50px; margin-top: 30px">
-            <input type="text" class="form-control input-user-data" style="height: 40px;"
-                   placeholder="password...">
-            <label class="input-info" id="userid;" for="userid;">ID</label>
-        </div>
-        <div class="form-floating mb-3" style="margin-left: 50px; margin-top: 30px">
-            <input type="password" class="form-control input-user-data" style="height: 40px;"
-                   placeholder="password...">
-            <label class="input-info">PW</label>
-        </div>
-        <div class="form-floating mb-3" style="margin-left: 50px; margin-top: 30px">
-            <input type="password" class="form-control input-user-data" style="height: 40px;"
-                   placeholder="password...">
-            <label class="input-info">PW확인</label>
-        </div>
-        <div class="btndiv" style="margin-top: 30px">
-            <button class="signupbtn" style="height: 40px; border: 1px solid whitesmoke; border-radius: 8%; width:258px">
-                회원가입
-            </button>
-            <div class="ask-sign" style="margin-top: 20px; color: hotpink"> 이미 10Taku 냐능? <a class="go-to-login" href="/login.html.html">로그인 하기</a></div>
-        </div>
-    </div>
+    </form>
 </div>
 
 <!-- Option 1: Bootstrap Bundle with Popper -->

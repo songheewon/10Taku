@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Comment, Bookmark
-from animation.models import Animation
+from animation.models import Animation, Genre
 from user.models import UserModel
 
 
@@ -13,8 +13,20 @@ def show_detail_view(request):
 # @login_required
 def animation_detail(request, id):
     animation = Animation.objects.get(id=id)
+    print(animation.title)
+    genres = Genre.objects.filter(animation__id=id).values()
+    genre_list = []
+    if len(genres) > 0:
+        for genre in genres:
+            name = genre['name']
+            genre_list.append(name)
+        genre_list = ", ".join(genre_list)
+    else:
+        genre_list = "장르 정보가 없습니다"
 
-    return render(request, 'animation/detail.html', {'animation': animation})
+    #컨텐츠 기반 장르 5가지 추천 코드
+    #협업필터링 유저추천 5가지 애니메이션 코드
+    return render(request, 'animation/detail.html', {'animation': animation, 'genre': genre_list})
 
 
 @login_required

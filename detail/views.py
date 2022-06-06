@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Comment, Bookmark
 from animation.models import Animation
-
+from user.models import UserModel
 
 # Create your views here.
 def show_detail_view(request):
@@ -38,22 +38,11 @@ def delete_comment(request, id):
     return redirect('/detail/'+str(current_ani))
 
 
-def bookmark(request, id):
-    animation = Animation.objects.get(id=id)
-    if animation in user.bookmark.all():
-        user.bookmark.remove(animation)
-    else:
-        user.bookmark.add(animation)
-    return redirect('/detail/' + str(id))
+# def bookmark(request, id):
+#     animation = Animation.objects.get(id=id)
+#     if animation in user.bookmark.all():
+#         user.bookmark.remove(animation)
+#     else:
+#         user.bookmark.add(animation)
+#     return redirect('/detail/' + str(id))
 
-
-from django.contrib import admin
-from django.urls import path, include
-from . import views
-
-urlpatterns = [
-    path('comment/', views.comment, name='comment'),
-    path('comment/delete/<int:id>', views.delete_comment, name='delete-comment'),
-    path('comment/<int:id>', views.detail_tweet, name='detail-tweet'),
-
-]

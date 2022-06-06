@@ -17,8 +17,8 @@ class Bookmark(models.Model):
     animation = models.ForeignKey(Animation, on_delete=models.CASCADE)
     user = models.ForeignKey(UserModel, on_delete=models.CASCADE)
 
-class Like(models.Model):
+class Recommend(models.Model):
     class Meta:
-        db_table = "like"
+        db_table = "recommend"
     animation = models.ForeignKey(Animation, on_delete=models.CASCADE)
     user = models.ForeignKey(UserModel, on_delete=models.CASCADE)

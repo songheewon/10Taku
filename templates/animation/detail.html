@@ -17,7 +17,7 @@
         <!--- 왼쪽단 상세설명 ----->
         <div class="left-body">
             <div class="anime-title-box">
-                <p class="anime-title">진격의 거인</p>
+                <p class="anime-title">{{ animation.title }}</p>
             </div>
             <div class="anime-info-body">
                 <img src="https://img2.yna.co.kr/photo/yna/YH/2013/09/08/PYH2013090801520000500_P2.jpg"
@@ -32,23 +32,18 @@
                         <p>회차</p>
                     </div>
                     <div class="anime-description-detail">
-                        <p class="anime-detail">이곳에는 내용들이 들어가게 됩니다.</p>
-                        <p class="anime-detail">이곳에는 내용들이 들어가게 됩니다.</p>
-                        <p class="anime-detail">이곳에는 내용들이 들어가게 됩니다.</p>
-                        <p class="anime-detail">이곳에는 내용들이 들어가게 됩니다.</p>
-                        <p class="anime-detail">이곳에는 내용들이 들어가게 됩니다.</p>
-                        <p class="anime-detail">이곳에는 내용들이 들어가게 됩니다.</p>
+                        <p class="anime-detail">{{ animation.원제 }}</p>
+                        <p class="anime-detail">{{ animation.genre }}</p>
+                        <p class="anime-detail">{{ animation.publisher }}</p>
+                        <p class="anime-detail">{{ animation.시청등급 }}</p>
+                        <p class="anime-detail">{{ animation.방영연도 }}</p>
+                        <p class="anime-detail">{{ animation.회차 }}</p>
                     </div>
 
                 </div>
             </div>
             <div class="anime-summary-box">
-                <p>줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에
-                    들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게
-                    됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에
-                    들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에 들어가게
-                    됩니다.줄거리가 이곳에 들어가게 됩니다.줄거리가 이곳에
-                    들어가게 됩니다.줄거리가 이곳에 들어가게 됩니다..</p>
+                <p style="text-align: left">줄거리</p><p>{{ animation.summary }}</p>
             </div>
             <div class="anime-btn-box">
                 <a href="#">

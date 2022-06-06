@@ -4,9 +4,17 @@ from .models import Comment, Bookmark
 from animation.models import Animation
 from user.models import UserModel
 
+
 # Create your views here.
 def show_detail_view(request):
     return render(request, 'animation/detail.html')
+
+
+# @login_required
+def animation_detail(request, id):
+    animation = Animation.objects.get(id=id)
+
+    return render(request, 'animation/detail.html', {'animation': animation})
 
 
 @login_required
@@ -14,11 +22,12 @@ def comment(request, id):
     if request.method == 'GET':
         user = request.user.is_authenticated
         if user:
-            #최신순으로 그 애니에 해당하는 댓글들 가져오기
+            # 최신순으로 그 애니에 해당하는 댓글들 가져오기
             animation = Animation.objects.get(id=id)
             comments = Comment.objects.filter(animation=animation).order_by('-created_at')
+            # animation_comments = Comment.objects.filter(animation_id=id).order_by('-created_at')
 
-            return render(request, 'detail/detail.html', {'comments': comments})
+            return render(request, 'animation/detail.html', {'comments': comments})
 
     elif request.method == "POST":
         my_comment = Comment()
@@ -30,12 +39,13 @@ def comment(request, id):
 
     return redirect('/sign-in')
 
+
 @login_required
 def delete_comment(request, id):
     my_comment = Comment.objects.get(id=id)
     current_ani = my_comment.animation.id
     my_comment.delete()
-    return redirect('/detail/'+str(current_ani))
+    return redirect('/detail/' + str(current_ani))
 
 
 # def bookmark(request, id):
@@ -46,3 +56,12 @@ def delete_comment(request, id):
 #         user.bookmark.add(animation)
 #     return redirect('/detail/' + str(id))
 
+# @login_required
+# def recommend(request, id):
+#     animation = Animation.objects.get(id=id)
+#     user = request.user.is_authenticated
+#     if animation in user.recommend.all():
+#         user.recommend.remove(animation)
+#     else:
+#         user.recommend.add(animation)
+#     return redirect('/detail/' + str(id))

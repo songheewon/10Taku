@@ -16,7 +16,7 @@
     <div class="detail-body">
         <!--- 왼쪽단 상세설명 ----->
         <div class="left-body">
-            <div class="anime-title-box" style="display: flex; justify-content: space-between;">
+            <div class="anime-title-box">
                 <p class="anime-title">{{ animation.title }}</p>
                 <p style="color: white; margin: 15px 30px; font-size: 20px; font-weight: bold">추천 수
                     : {{ animation.recommend_count }} <i class="fa-solid fa-heart" style="transform: scale(0.8);"></i>
@@ -50,11 +50,11 @@
                 <p>{{ animation.story }}</p>
             </div>
             <div class="anime-btn-box">
-                <a href="#">
-                    {#                <a href="/comment/{{ animation.id }}">#}
+
+
                     <button class="comment-btn" data-toggle="modal" data-target="#commentmodal">
-                        <span>댓글 12개 보기</span></button>
-                </a>
+                        <span>댓글 {{ comment_count }}개 보기</span>
+                    </button>
 
                 <a href="/bookmark/{{ animation.id }}">
                     <button class="comment-btn">
@@ -140,9 +140,7 @@
                                             <div class="media-body">
                                                 <h5 class="mt-0">댓글을 적어주세요</h5>
                                                 <p>
-                                                <form action="#" method="post">
-                                                    {#                                                <form action={%url comment animation.id%} method="post">#}
-
+                                                <form action={% url 'comment' animation.id %} method="post">
                                                     {% csrf_token %}
                                                     <div class="form-group mb-2">
                                                     <textarea class="form-control" style="resize: none"
@@ -162,8 +160,8 @@
                         </div>
                         <hr>
                         <!-- 작성 된 댓글이 나오는 곳 -->
+                        {% for comment in comments %}
                         <div class="row">
-                            {#                            {% for comment in comments %}#}
                             <div class="col-md-12 mb-2">
                                 <div class="card">
                                     <div class="card-body">
@@ -176,242 +174,20 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {#                                        {% if comment.author == user %}#}
+                                    {% if comment.author == user %}
                                     <div style="text-align: right">
                                         <a href="/comment/delete/{{ comment.id }}">
                                             <span class="badge rounded-pill bg-danger">삭제</span>
                                         </a>
                                     </div>
-                                    {#                                        {% endif %}#}
+                                    {% endif %}
                                 </div>
                             </div>
-                            {#                            {% endfor %}#}
                         </div>
-                        <div class="row">
-                            {#                            {% for comment in comments %}#}
-                            <div class="col-md-12 mb-2">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="media">
-                                            <div class="media-body">
-                                                <h5 class="mt-0">{{ comment.content }}</h5>
-                                            </div>
-                                            <div style="text-align: right">
-                                                <span style="font-size: small">{{ comment.author.username }}-{{ comment.created_at|timesince }}전</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {#                                        {% if comment.author == user %}#}
-                                    <div style="text-align: right">
-                                        <a href="/comment/delete/{{ comment.id }}">
-                                            <span class="badge rounded-pill bg-danger">삭제</span>
-                                        </a>
-                                    </div>
-                                    {#                                        {% endif %}#}
-                                </div>
-                            </div>
-                            {#                            {% endfor %}#}
-                        </div>
-                        <div class="row">
-                            {#                            {% for comment in comments %}#}
-                            <div class="col-md-12 mb-2">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="media">
-                                            <div class="media-body">
-                                                <h5 class="mt-0">{{ comment.content }}</h5>
-                                            </div>
-                                            <div style="text-align: right">
-                                                <span style="font-size: small">{{ comment.author.username }}-{{ comment.created_at|timesince }}전</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {#                                        {% if comment.author == user %}#}
-                                    <div style="text-align: right">
-                                        <a href="/comment/delete/{{ comment.id }}">
-                                            <span class="badge rounded-pill bg-danger">삭제</span>
-                                        </a>
-                                    </div>
-                                    {#                                        {% endif %}#}
-                                </div>
-                            </div>
-                            {#                            {% endfor %}#}
-                        </div>
-                        <div class="row">
-                            {#                            {% for comment in comments %}#}
-                            <div class="col-md-12 mb-2">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="media">
-                                            <div class="media-body">
-                                                <h5 class="mt-0">{{ comment.content }}</h5>
-                                            </div>
-                                            <div style="text-align: right">
-                                                <span style="font-size: small">{{ comment.author.username }}-{{ comment.created_at|timesince }}전</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {#                                        {% if comment.author == user %}#}
-                                    <div style="text-align: right">
-                                        <a href="/comment/delete/{{ comment.id }}">
-                                            <span class="badge rounded-pill bg-danger">삭제</span>
-                                        </a>
-                                    </div>
-                                    {#                                        {% endif %}#}
-                                </div>
-                            </div>
-                            {#                            {% endfor %}#}
-                        </div>
-                        <div class="row">
-                            {#                            {% for comment in comments %}#}
-                            <div class="col-md-12 mb-2">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="media">
-                                            <div class="media-body">
-                                                <h5 class="mt-0">{{ comment.content }}</h5>
-                                            </div>
-                                            <div style="text-align: right">
-                                                <span style="font-size: small">{{ comment.author.username }}-{{ comment.created_at|timesince }}전</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {#                                        {% if comment.author == user %}#}
-                                    <div style="text-align: right">
-                                        <a href="/comment/delete/{{ comment.id }}">
-                                            <span class="badge rounded-pill bg-danger">삭제</span>
-                                        </a>
-                                    </div>
-                                    {#                                        {% endif %}#}
-                                </div>
-                            </div>
-                            {#                            {% endfor %}#}
-                        </div>
-                        <div class="row">
-                            {#                            {% for comment in comments %}#}
-                            <div class="col-md-12 mb-2">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="media">
-                                            <div class="media-body">
-                                                <h5 class="mt-0">{{ comment.content }}</h5>
-                                            </div>
-                                            <div style="text-align: right">
-                                                <span style="font-size: small">{{ comment.author.username }}-{{ comment.created_at|timesince }}전</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {#                                        {% if comment.author == user %}#}
-                                    <div style="text-align: right">
-                                        <a href="/comment/delete/{{ comment.id }}">
-                                            <span class="badge rounded-pill bg-danger">삭제</span>
-                                        </a>
-                                    </div>
-                                    {#                                        {% endif %}#}
-                                </div>
-                            </div>
-                            {#                            {% endfor %}#}
-                        </div>
-                        <div class="row">
-                            {#                            {% for comment in comments %}#}
-                            <div class="col-md-12 mb-2">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="media">
-                                            <div class="media-body">
-                                                <h5 class="mt-0">{{ comment.content }}</h5>
-                                            </div>
-                                            <div style="text-align: right">
-                                                <span style="font-size: small">{{ comment.author.username }}-{{ comment.created_at|timesince }}전</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {#                                        {% if comment.author == user %}#}
-                                    <div style="text-align: right">
-                                        <a href="/comment/delete/{{ comment.id }}">
-                                            <span class="badge rounded-pill bg-danger">삭제</span>
-                                        </a>
-                                    </div>
-                                    {#                                        {% endif %}#}
-                                </div>
-                            </div>
-                            {#                            {% endfor %}#}
-                        </div>
-                        <div class="row">
-                            {#                            {% for comment in comments %}#}
-                            <div class="col-md-12 mb-2">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="media">
-                                            <div class="media-body">
-                                                <h5 class="mt-0">{{ comment.content }}</h5>
-                                            </div>
-                                            <div style="text-align: right">
-                                                <span style="font-size: small">{{ comment.author.username }}-{{ comment.created_at|timesince }}전</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {#                                        {% if comment.author == user %}#}
-                                    <div style="text-align: right">
-                                        <a href="/comment/delete/{{ comment.id }}">
-                                            <span class="badge rounded-pill bg-danger">삭제</span>
-                                        </a>
-                                    </div>
-                                    {#                                        {% endif %}#}
-                                </div>
-                            </div>
-                            {#                            {% endfor %}#}
-                        </div>
-                        <div class="row">
-                            {#                            {% for comment in comments %}#}
-                            <div class="col-md-12 mb-2">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="media">
-                                            <div class="media-body">
-                                                <h5 class="mt-0">{{ comment.content }}</h5>
-                                            </div>
-                                            <div style="text-align: right">
-                                                <span style="font-size: small">{{ comment.author.username }}-{{ comment.created_at|timesince }}전</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {#                                        {% if comment.author == user %}#}
-                                    <div style="text-align: right">
-                                        <a href="/comment/delete/{{ comment.id }}">
-                                            <span class="badge rounded-pill bg-danger">삭제</span>
-                                        </a>
-                                    </div>
-                                    {#                                        {% endif %}#}
-                                </div>
-                            </div>
-                            {#                            {% endfor %}#}
-                        </div>
-                        <div class="row">
-                            {#                            {% for comment in comments %}#}
-                            <div class="col-md-12 mb-2">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="media">
-                                            <div class="media-body">
-                                                <h5 class="mt-0">{{ comment.content }}</h5>
-                                            </div>
-                                            <div style="text-align: right">
-                                                <span style="font-size: small">{{ comment.author.username }}-{{ comment.created_at|timesince }}전</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {#                                        {% if comment.author == user %}#}
-                                    <div style="text-align: right">
-                                        <a href="/comment/delete/{{ comment.id }}">
-                                            <span class="badge rounded-pill bg-danger">삭제</span>
-                                        </a>
-                                    </div>
-                                    {#                                        {% endif %}#}
-                                </div>
-                            </div>
-                            {#                            {% endfor %}#}
-                        </div>
+                        {% endfor %}
+
+
+
 
                     </div>
                     <div class="modal-footer">

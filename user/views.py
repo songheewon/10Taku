@@ -65,3 +65,8 @@ def login_view(request): #sign_in_view 함수 (요청받은 정보 request)
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+
+def select_genre_view(request):
+
+    return render(request, 'user/select_genre.html')

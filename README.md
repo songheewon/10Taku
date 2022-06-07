@@ -43,14 +43,15 @@ AI가 사용자에게 애니메이션을 추천해주는 프로그램입니다.
 
 
 ## 🤦🏻‍♂️🤦10지않조 팀원 및 역할분담
-<b>김규민</b><br>프론트엔드 - 상세 페이지<br> 백엔드 - 상세 정보 출력 기능, 추천/비추천 기능, 추천한 애니 페이지 출력 기능<br> 영상촬영<br><br>
+<b>김규민</b><br>프론트엔드 - 상세 페이지<br> 백엔드 - 상세 정보페이지 출력, 추천 기능, 추천한 애니 페이지 출력, 검색 기능<br> 제출 영상촬영<br> 기능 종합<br><br>
 <b>김민석</b><br>프론트엔드 - 로그인/회원가입 페이지<br> 백엔드 - 로그인/회원가입 기능<br><br>
 <b>김철현</b><br>프론트엔드 - 댓글모달창<br> 백엔드 - 북마크 기능, 북마크 내역 출력 기능, 댓글기능<br> 발표<br><br>
-<b>원송희</b><br>프론트엔드 - 선호 장르 선택 페이지, 메인 페이지, 북마크 페이지, 검색 결과 페이지 <br>백엔드 - 모델연결 <br>모델 구축 - 컨텐츠 기반 추천 모델<br>
+<b>원송희</b><br>프론트엔드 - 선호 장르 선택 페이지, 메인 페이지, 북마크 페이지, 검색 결과 페이지 <br>백엔드 - 모델연결 <br>모델 구축 - 컨텐츠 기반 추천 모델, 크롤링<br>
 <br><br><br>
 
 ## 🕘 프로젝트 일정
-2022.06.02 ~ 2022.06.13
+2022.06.02 ~ 2022.06.13<br><br>
+🕘 <a href="https://quixotic-wok-871.notion.site/ad8d2f484f6544d5adc175d0a4bab03b">일정 관리 Notion</a>
 <br><br><br>
 
 
@@ -59,7 +60,7 @@ AI가 사용자에게 애니메이션을 추천해주는 프로그램입니다.
 #### 📕 <a href="https://docs.google.com/spreadsheets/d/1U5XLYUx1arjF-M-XEOD9d2E0mnQH_5hT8s7q26umw2g/edit?usp=sharing">API 설계</a>
 <br><br>
 ## DB 설계 ERD  
-![image](https://user-images.githubusercontent.com/44194990/171596605-422ef533-58ad-4389-a031-0e08d4e83762.png)
+![10takuERD](https://user-images.githubusercontent.com/104349901/172278311-24187929-cba3-4619-932f-e5cdcb172dce.PNG)
 
 ## 📢 <a href="https://www.youtube.com">발표 영상</a>
 

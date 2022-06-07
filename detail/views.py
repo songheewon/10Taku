@@ -8,7 +8,7 @@ def show_detail_view(request):
     return render(request, 'animation/detail.html')
 
 
-# @login_required
+@login_required
 def animation_detail(request, id):
     user = request.user
     animation = Animation.objects.get(id=id)
@@ -22,8 +22,8 @@ def animation_detail(request, id):
     else:
         genre_list = "장르 정보가 없습니다"
 
-    is_bookmarked = Bookmark.objects.filter(user=user, animation=animation).exists()
-    is_recommended = Recommend.objects.filter(user=user, animation=animation).exists()
+    is_bookmark = Bookmark.objects.filter(user=user, animation=animation).exists()
+    is_recommend = Recommend.objects.filter(user=user, animation=animation).exists()
     comments = Comment.objects.filter(animation=animation).order_by('-created_at')
 
     #컨텐츠 기반 장르 5가지 추천 코드
@@ -31,11 +31,10 @@ def animation_detail(request, id):
     return render(request, 'animation/detail.html', {
         'animation': animation,
         'genre': genre_list,
-        'is_bookmarked': is_bookmarked,
-        'is_recommended': is_recommended,
+        'is_bookmark': is_bookmark,
+        'is_recommend': is_recommend,
         'comments': comments
     })
-
 
 @login_required
 def comment(request, id):
@@ -73,15 +72,18 @@ def bookmark(request, id):
 
 
 @login_required
-def recommend(request, id):
+def recommend_toggle(request, id):
     user = request.user
     animation = Animation.objects.get(id=id)
 
     try:
         my_recommend = Recommend.objects.get(user=user, animation=animation)
         my_recommend.delete()
+
     except Recommend.DoesNotExist:
-        my_recommend = Recommend(user=user, animation=animation)
+        my_recommend = Recommend(user=user, animation=animation) #새로운 객체 만들어서 저장
         my_recommend.save()
+        animation.recommend_count += 1
+        animation.save()
         return redirect('/detail/' + str(id))
     return redirect('/detail/' + str(id))

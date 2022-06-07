@@ -1,7 +1,5 @@
-from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from detail.models import Bookmark, Recommend
 from .models import Genre, Animation
 from django.db.models import Q
 from detail.models import Recommend, Bookmark
@@ -72,32 +70,23 @@ def show_bookmark_view(request):
 def search_view(request):
     animation_list = Animation.objects.all()
     search = request.GET.get('search', '')
-    print(search)
     if search:
         search_list = animation_list.filter(Q(title__icontains=search)) #제목검색
+        ani_info = []
         print(search_list)
-        paginator = Paginator(search_list, 5)
-        page = request.GET.get('page', '')
-        posts = paginator.get_page(page)
-        ani_info = {}
+
         for anime in search_list:
-            animation = anime.animation
-            genres = Genre.objects.filter(animation__id=animation.id).values()
+            img = animation_list.get(id=anime.id).img
+            title = animation_list.get(id=anime.id).title
+            genres = Genre.objects.filter(animation__id=anime.id).values()
             genre_list = []
             for genre in genres:
                 genre_list.append(genre['name'])
-
             genre_list = ", ".join(genre_list)
-
-            ani_info[animation.title] = {
-                'id': animation.id,
-                'img': animation.img,
-                'genres': genre_list
-            }
-
-        print(ani_info.items())
+            dic = {'img': img, 'title': title, 'genre': genre_list, 'id': anime.id}
+            ani_info.append(dic)
 
 
-        return render(request, 'animation/search_result.html', {'posts': posts, 'search': search})
-    return  render(request, 'animation/search_result.html')
+        return render(request, 'animation/search_result.html', {'search': search, 'ani_info': ani_info})
+    return render(request, 'animation/search_result.html')
 

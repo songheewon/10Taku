@@ -35,14 +35,42 @@
                         <p>회차</p>
                     </div>
                     <div class="anime-description-detail">
-                        <p class="anime-detail">{{ animation.original_title }}</p>
-                        <p class="anime-detail">{{ genre }}</p>
-                        <p class="anime-detail">{{ animation.company }}</p>
-                        <p class="anime-detail">{{ animation.rated }}</p>
-                        <p class="anime-detail">{{ animation.broadcasted_date }}</p>
-                        <p class="anime-detail">{{ animation.chapters }}</p>
-                    </div>
+                        {% if animation.original_title == '' %}
+                            <p class="anime-detail">원제 정보 없음</p>
+                        {% else %}
+                            <p class="anime-detail" style="font-size: 13px;">{{ animation.original_title }}</p>
+                        {% endif %}
 
+                        {% if genre == '' %}
+                            <p class="anime-detail">장르 정보 없음</p>
+                        {% else %}
+                            <p class="anime-detail">{{ genre }}</p>
+                        {% endif %}
+
+                        {% if animation.company == '' %}
+                            <p class="anime-detail">제작사 정보 없음</p>
+                        {% else %}
+                            <p class="anime-detail">{{ animation.company }}</p>
+                        {% endif %}
+
+                        {% if animation.rated == '' %}
+                            <p class="anime-detail">등급 정보 없음</p>
+                        {% else %}
+                            <p class="anime-detail">{{ animation.rated }}</p>
+                        {% endif %}
+
+                        {% if animation.broadcasted_date == '' %}
+                            <p class="anime-detail">연도 정보 없음</p>
+                        {% else %}
+                            <p class="anime-detail">{{ animation.broadcasted_date }}</p>
+                        {% endif %}
+
+                        {% if animation.chapters == '' %}
+                            <p class="anime-detail">회차 정보 없음</p>
+                        {% else %}
+                            <p class="anime-detail">{{ animation.chapters }}</p>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
             <div class="anime-summary-box">
@@ -52,9 +80,9 @@
             <div class="anime-btn-box">
 
 
-                    <button class="comment-btn" data-toggle="modal" data-target="#commentmodal">
-                        <span>댓글 {{ comment_count }}개 보기</span>
-                    </button>
+                <button class="comment-btn" data-toggle="modal" data-target="#commentmodal">
+                    <span>댓글 {{ comment_count }}개 보기</span>
+                </button>
 
                 <a href="/bookmark/{{ animation.id }}">
                     <button class="comment-btn">
@@ -161,32 +189,30 @@
                         <hr>
                         <!-- 작성 된 댓글이 나오는 곳 -->
                         {% for comment in comments %}
-                        <div class="row">
-                            <div class="col-md-12 mb-2">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="media">
-                                            <div class="media-body">
-                                                <h5 class="mt-0">{{ comment.content }}</h5>
-                                            </div>
-                                            <div style="text-align: right">
-                                                <span style="font-size: small">{{ comment.author.username }}-{{ comment.created_at|timesince }}전</span>
+                            <div class="row">
+                                <div class="col-md-12 mb-2">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="media">
+                                                <div class="media-body">
+                                                    <h5 class="mt-0">{{ comment.content }}</h5>
+                                                </div>
+                                                <div style="text-align: right">
+                                                    <span style="font-size: small">{{ comment.author.username }}-{{ comment.created_at|timesince }}전</span>
+                                                </div>
                                             </div>
                                         </div>
+                                        {% if comment.author == user %}
+                                            <div style="text-align: right">
+                                                <a href="/comment/delete/{{ comment.id }}">
+                                                    <span class="badge rounded-pill bg-danger">삭제</span>
+                                                </a>
+                                            </div>
+                                        {% endif %}
                                     </div>
-                                    {% if comment.author == user %}
-                                    <div style="text-align: right">
-                                        <a href="/comment/delete/{{ comment.id }}">
-                                            <span class="badge rounded-pill bg-danger">삭제</span>
-                                        </a>
-                                    </div>
-                                    {% endif %}
                                 </div>
                             </div>
-                        </div>
                         {% endfor %}
-
-
 
 
                     </div>

@@ -60,14 +60,15 @@
 }
 
 .genre-anime {
-    width: 1350px;
+    width: 1300px;
     display: flex;
     flex-flow: row wrap;
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 40px;
+    margin-left: 40px;
 }
 
-.col {
+.anime-box {
+    width: 220px;
 }
 
 .card-img-top {

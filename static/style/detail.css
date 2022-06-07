@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     margin-top: 110px;
-    max-height: 1200px;
+    height: 1000px;
     max-width: 1300px;
     background-color: rgb(30, 30, 30);
     font-family: 'Poor Story', cursive;
@@ -27,6 +27,8 @@
     white-space: nowrap;
     margin-top: 15px;
     height: 60px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .anime-btn-box {
@@ -42,7 +44,7 @@
 .anime-summary-box {
     background-color: rgb(45, 45, 45);
     margin-top: 15px;
-    max-height: 219px;
+    max-height: 400px;
     text-align: center;
     color: white;
     padding: 2px 10px 10px 10px;

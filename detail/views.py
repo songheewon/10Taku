@@ -26,6 +26,7 @@ def animation_detail(request, id):
     is_bookmark = Bookmark.objects.filter(user=user, animation=animation).exists()
     is_recommend = Recommend.objects.filter(user=user, animation=animation).exists()
     comments = Comment.objects.filter(animation=animation).order_by('-created_at')
+    comment_count = len(Comment.objects.filter(animation=animation).order_by('-created_at'))
 
     #컨텐츠 기반 장르 5가지 추천 코드
     #협업필터링 유저추천 5가지 애니메이션 코드
@@ -34,7 +35,8 @@ def animation_detail(request, id):
         'genre': genre_list,
         'is_bookmark': is_bookmark,
         'is_recommend': is_recommend,
-        'comments': comments
+        'comments': comments,
+        'comment_count': comment_count
     })
 
 

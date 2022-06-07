@@ -9,8 +9,4 @@ urlpatterns = [
     path('comment/delete/<int:id>', views.delete_comment, name='delete-comment'),
     path('bookmark/<int:id>', views.bookmark, name='bookmark'),
     path('recommend_toggle/<int:id>', views.recommend_toggle, name='recommend_toggle'),
-<<<<<<< HEAD
 ]
-=======
-]
->>>>>>> 211bbace0ed99103bef384f7dbb57daed7fe236f

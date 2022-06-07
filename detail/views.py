@@ -22,10 +22,7 @@ def animation_detail(request, id):
     else:
         genre_list = "장르 정보가 없습니다"
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 211bbace0ed99103bef384f7dbb57daed7fe236f
     is_bookmark = Bookmark.objects.filter(user=user, animation=animation).exists()
     is_recommend = Recommend.objects.filter(user=user, animation=animation).exists()
     comments = Comment.objects.filter(animation=animation).order_by('-created_at')
@@ -39,11 +36,8 @@ def animation_detail(request, id):
         'is_recommend': is_recommend,
         'comments': comments
     })
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 211bbace0ed99103bef384f7dbb57daed7fe236f
 
 @login_required
 def comment(request, id):
@@ -81,11 +75,8 @@ def bookmark(request, id):
     return redirect('/detail/' + str(id))
 
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 211bbace0ed99103bef384f7dbb57daed7fe236f
 @login_required
 def recommend_toggle(request, id):
     user = request.user
@@ -94,11 +85,8 @@ def recommend_toggle(request, id):
     try:
         my_recommend = Recommend.objects.get(user=user, animation=animation)
         my_recommend.delete()
-<<<<<<< HEAD
         animation.recommend_count -= 1
         animation.save()
-=======
->>>>>>> 211bbace0ed99103bef384f7dbb57daed7fe236f
 
     except Recommend.DoesNotExist:
         my_recommend = Recommend(user=user, animation=animation) #새로운 객체 만들어서 저장

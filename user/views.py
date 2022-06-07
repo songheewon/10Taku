@@ -15,7 +15,7 @@ def sign_up_view(request):
         return render(request, 'user/sign_up.html')
     elif request.method == 'POST':
         username = request.POST.get('username', '') #None은 유저네임이없다면 빈칸으로 처리하겠다.
-        userid = request.POST.get('userid', '')
+        email = request.POST.get('email', '')
         password = request.POST.get('password', '')
         password2 = request.POST.get('password2', '')
 
@@ -27,12 +27,12 @@ def sign_up_view(request):
                 print('빈칸')
                 return render(request, 'user/sign_up.html', {'error': '사용자 이름과 비밀번호는 필수 입니다'})
 
-            exist_user = get_user_model().objects.filter(userid=userid)
+            exist_user = get_user_model().objects.filter(username=username)
             if exist_user:
                 print('사용자 존재!')
                 return render(request, 'user/sign_up.html', {'error': '사용자가 존재합니다'}) #사용자가 존재하기 때문에 저장x 회원가입페이지 다시띄움
             else:
-                UserModel.objects.create_user(username=username, password=password, userid=userid) #밑의 주석코드를 한줄로 줄임
+                UserModel.objects.create_user(username=username, password=password, email=email) #밑의 주석코드를 한줄로 줄임
                 print('회원가입 성공')
                 return redirect('/login')
 
@@ -40,10 +40,10 @@ def sign_up_view(request):
 # 로그인 기능
 def login_view(request): #sign_in_view 함수 (요청받은 정보 request)
     if request.method == 'POST': #메소드는 POST다.
-        userid = request.POST.get('userid', '') #유저ID 입력받는다.
+        username = request.POST.get('username', '') #유저ID 입력받는다.
         password = request.POST.get('password', '') #비밀번호 입력받는다.
 
-        me = auth.authenticate(request, userid=userid, password=password) #인증모듈 authenticate
+        me = auth.authenticate(request, username=username, password=password) #인증모듈 authenticate
 
         if me is not None: #위의 코드에서 사용자 정보를 다비교하고 오기때문에 me만 사용한다. me가 비어있지않다면
             auth.login(request, me) #내정보를 넣어준다.로그인 작업을 해준다.

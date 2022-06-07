@@ -1,10 +1,15 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+<<<<<<< HEAD
 from detail.models import Bookmark, Recommend
 from .models import Genre, Animation
 from django.contrib import messages
 from django.db.models import Q
+=======
+from detail.models import Recommend, Bookmark, Animation
+from animation.models import Genre
+>>>>>>> origin/chulhyun_bookmark
 
 
 def home(request):
@@ -18,6 +23,7 @@ def home(request):
 @login_required
 def show_recommend_view(request):
     user = request.user
+<<<<<<< HEAD
     recommends = Recommend.objects.filter(user=user)
     ani_info = {}
     for recommend in recommends:
@@ -40,6 +46,36 @@ def show_recommend_view(request):
     return render(request, 'animation/my_recommend.html', {'ani_info': ani_info.items()})
 
 
+=======
+    recommends = Recommend.objects.filter(user=user).values()
+    recommend_list = []
+
+
+    if len(recommends) > 0:
+        for recommend in recommends:
+            animation = recommend['animation_id']
+            animes = Animation.objects.get(id=animation)
+            recommend_list.append(animes)
+            genres = Genre.objects.filter(animation__id=animation).values()
+            genre_list = []
+            if len(genres) > 0:
+                for genre in genres:
+                    genre_list.append(genre)
+
+                for genre in genre_list:
+                    genres = genre['name']
+                    print(genres)
+                # genre_list = ", ".join(genre_list)
+            else:
+                genre_list = "장르 정보가 없습니다"
+    else:
+        recommend_list = "추천한 애니가 없습니다"
+
+
+    return render(request, 'animation/my_recommend.html', {'animations': recommend_list, 'genres': genres})
+
+
+>>>>>>> origin/chulhyun_bookmark
 @login_required
 def show_bookmark_view(request):
     user = request.user
@@ -58,12 +94,17 @@ def show_bookmark_view(request):
         ani_info[animation.title] = {
             'id': animation.id,
             'img': animation.img,
+<<<<<<< HEAD
             'genres': genre_list
+=======
+            'genres': genre_list,
+>>>>>>> origin/chulhyun_bookmark
         }
 
     print(ani_info.items())
 
     return render(request, 'animation/bookmark.html', {'ani_info': ani_info.items()})
+<<<<<<< HEAD
 
 @login_required
 def search_view(request):
@@ -81,3 +122,5 @@ def search_view(request):
         return render(request, 'animation/search_result.html', {'posts': posts, 'search': search})
     return  render(request, 'animation/search_result.html')
 
+=======
+>>>>>>> origin/chulhyun_bookmark

@@ -5,5 +5,9 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('recommend/', views.show_recommend_view, name='recommend_page'),
     path('bookmark/', views.show_bookmark_view, name='bookmark_page'),
+<<<<<<< HEAD
     path('search/', views.search_view, name='search_animation'),
+=======
+
+>>>>>>> origin/chulhyun_bookmark
 ]

@@ -25,12 +25,11 @@
             <div class="genre-anime">
                 <!-- 하나의 애니메이션 정보(사진, 제목, 장르) 출력 단위 -->
                 {% for ani, info in ani_info %}
-<<<<<<< HEAD
                     <div class="anime-box">
                         <div class="animation-info">
                             <a href="/detail/{{ info.id }}">
                                 <img src='{{ info.img }}'
-                                 class="card-img-top" width="270px" height="500px">
+                                     class="card-img-top" width="270px" height="500px">
                             </a>
                             <div class="card-body">
                                 <h3 class="card-title" style="font-size: 18px;">{{ ani }}</h3>
@@ -39,22 +38,6 @@
                         </div>
                     </div>
                 {% endfor %}
-=======
-                <div class="col">
-                    <div class="animation-info">
-                        <a href='/detail/{{ info.id }}'>
-                            <img src = '{{ info.img }}'
-                                class="card-img-top" width="270px" height="500px">
-                        </a>
-                        <div class="card-body">
-                            <h3 class="card-title">{{ ani }}</h3>
-                            <h5 class="card-genre">{{ info.genres}}</h5>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-
->>>>>>> origin/chulhyun_bookmark
             </div>
         </div>
     </div>

@@ -21,10 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('main/', views.main_view, name='mainpage'),
     path('genre/', views.genre_view, name='genrepage'),
-<<<<<<< HEAD
-=======
-    path('search/', views.search_view, name='genrepage'),
->>>>>>> origin/chulhyun_bookmark
     path('', include('user.urls')),
     path('', include('animation.urls')),
     path('', include('detail.urls')),

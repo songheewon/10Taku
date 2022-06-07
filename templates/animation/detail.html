@@ -18,7 +18,9 @@
         <div class="left-body">
             <div class="anime-title-box" style="display: flex; justify-content: space-between;">
                 <p class="anime-title">{{ animation.title }}</p>
-                <p style="color: white; margin: 15px 30px; font-size: 20px; font-weight: bold">유저추천 수 : {{animation.recommend_count}}</p>
+                <p style="color: white; margin: 15px 30px; font-size: 20px; font-weight: bold">추천 수
+                    : {{ animation.recommend_count }} <i class="fa-solid fa-heart" style="transform: scale(0.8);"></i>
+                </p>
             </div>
             <div class="anime-info-body">
                 <img src="{{ animation.img }}"
@@ -53,18 +55,26 @@
                     <button class="comment-btn" data-toggle="modal" data-target="#commentmodal">
                         <span>댓글 12개 보기</span></button>
                 </a>
-                <button class="comment-btn">북마크 추가</button>
+
+                <a href="/bookmark/{{ animation.id }}">
+                    <button class="comment-btn">
+                        {% if is_bookmark %}
+                            북마크 삭제
+                        {% else %}
+                            북마크
+                        {% endif %}
+                    </button>
+                </a>
                 <a href="/recommend_toggle/{{ animation.id }}">
                     <button class="comment-btn">
                         {% if is_recommend %}
-                        추천 취소
+                            추천 취소
                         {% else %}
-                        추천 하기
+                            추천 하기
                         {% endif %}
                     </button>
                 </a>
             </div>
-
         </div>
         <!--- 오른쪽단 애니추천 ----->
         <div class="right-body">

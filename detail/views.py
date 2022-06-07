@@ -70,6 +70,7 @@ def bookmark(request, id):
         my_bookmark = Bookmark(user=user, animation=animation)
         my_bookmark.save()
         return redirect('/detail/' + str(id))
+
     return redirect('/detail/' + str(id))
 
 
@@ -92,6 +93,7 @@ def recommend_toggle(request, id):
         animation.recommend_count += 1
         animation.save()
         return redirect('/detail/' + str(id))
+
     return redirect('/detail/' + str(id))
 
 

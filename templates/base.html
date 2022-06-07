@@ -27,13 +27,18 @@
     <!-- 로고 -->
     <button class="logo" onclick="window.location.replace('/main')"><b>10 Taku</b></button>
     <!-- 검색창 -->
+
     <div class="search">
-        <div class="search-box">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input id="search_input_box" aria-label="입력 검색" class="search_input_box" autocapitalize="none"
-                   placeholder="검색" type="text" value="">
-        </div>
+        <form method="GET" action="/search/" style="max-width: 300px">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input id="search_input_box" aria-label="입력 검색" class="search_input_box" autocapitalize="none"
+                       placeholder="제목 검색" type="text" name="search"value="">
+            </div>
+        </form>
     </div>
+
+
     <!-- 회원 정보 (로그인된 닉네임, 북마크, 좋아요, 로그아웃) -->
     <div class="user-info">
         <p class="username" id="user-name">
@@ -51,7 +56,8 @@
         </p>
         <p class="logout" id="user-logout">
             <i class="fa-solid fa-right-from-bracket" id="logout-icon"></i> <a class="logout-txt" id="loginout"
-                                                                                  href="/logout" style="text-decoration: none; color: white;">로그아웃</a>
+                                                                               href="/logout"
+                                                                               style="text-decoration: none; color: white;">로그아웃</a>
         </p>
     </div>
 

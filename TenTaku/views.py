@@ -9,8 +9,7 @@ def select_genre(request):
 def genre_view(request):
     return render(request, 'animation/genrepage.html')
 
-def search_view(request):
-    return render(request, 'animation/search_result.html')
+
 
 
 

@@ -17,6 +17,7 @@ class Animation(models.Model):
     chapters = models.CharField(max_length=70, default='')
     story = models.TextField(max_length=256, default='')
     img = models.TextField(max_length=256, default='')
+    recommend_count = models.PositiveIntegerField(default=0)
 
 
 

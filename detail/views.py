@@ -37,6 +37,7 @@ def animation_detail(request, id):
         'comment_count': comment_count
     })
 
+
 #댓글 달기
 @login_required
 def comment(request, id):
@@ -95,9 +96,6 @@ def recommend_toggle(request, id):
         animation.recommend_count += 1
         animation.save()
         return redirect('/detail/' + str(id))
-<<<<<<< HEAD
-    return redirect('/detail/' + str(id))
-=======
 
     return redirect('/detail/' + str(id))
 
@@ -107,4 +105,4 @@ def recommend_toggle(request, id):
 def random_view(request):
     page_num = random.randrange(1, 917)
     return redirect('/detail/' + str(page_num))
->>>>>>> detail_kyumin
+

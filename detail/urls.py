@@ -8,9 +8,5 @@ urlpatterns = [
     path('comment/delete/<int:id>', views.delete_comment, name='delete-comment'),
     path('bookmark/<int:id>', views.bookmark, name='bookmark'),
     path('recommend_toggle/<int:id>', views.recommend_toggle, name='recommend_toggle'),
-<<<<<<< HEAD
-]
-=======
     path('random/', views.random_view, name='random_page'),
 ]
->>>>>>> detail_kyumin

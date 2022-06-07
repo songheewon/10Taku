@@ -2,12 +2,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Comment, Bookmark, Recommend
 from animation.models import Animation, Genre
+import random
+import sklearn
 
-# Create your views here.
-def show_detail_view(request):
-    return render(request, 'animation/detail.html')
-
-
+#애니메이션 상세 페이지
 @login_required
 def animation_detail(request, id):
     user = request.user
@@ -37,8 +35,7 @@ def animation_detail(request, id):
         'comments': comments
     })
 
-
-
+#댓글 달기
 @login_required
 def comment(request, id):
     if request.method == "POST":
@@ -51,7 +48,7 @@ def comment(request, id):
 
     return redirect('/detail/' + str(id))
 
-
+#댓글 삭제
 @login_required
 def delete_comment(request, id):
     my_comment = Comment.objects.get(id=id)
@@ -60,6 +57,7 @@ def delete_comment(request, id):
     return redirect('/detail/' + str(current_ani))
 
 
+#북마크 기능
 @login_required
 def bookmark(request, id):
     user = request.user
@@ -76,7 +74,7 @@ def bookmark(request, id):
 
 
 
-
+#추천하기 기능
 @login_required
 def recommend_toggle(request, id):
     user = request.user
@@ -95,3 +93,10 @@ def recommend_toggle(request, id):
         animation.save()
         return redirect('/detail/' + str(id))
     return redirect('/detail/' + str(id))
+
+
+#랜덤 추천
+@login_required
+def random_view(request):
+    page_num = random.randrange(1, 917)
+    return redirect('/detail/' + str(page_num))

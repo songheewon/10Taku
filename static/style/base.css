@@ -120,7 +120,7 @@ body::-webkit-scrollbar-track {
     color: white;
 }
 
-.username, .bookmark, .liked, .logout {
+.username, .bookmark, .liked, .logout, .random {
     display: flex;
     flex-direction: row;
     float: right;
@@ -139,7 +139,7 @@ body::-webkit-scrollbar-track {
     text-decoration: none;
 }
 
-.bookmark-txt, .like-txt, .user-txt {
+.bookmark-txt, .like-txt, .user-txt, .random-txt{
     margin-left: 10px;
     margin-top: -3px;
 }
@@ -151,6 +151,12 @@ body::-webkit-scrollbar-track {
 }
 
 .liked:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: all 0.25s ease-in-out;
+}
+
+.random:hover {
     cursor: pointer;
     transform: scale(1.1);
     transition: all 0.25s ease-in-out;

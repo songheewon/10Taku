@@ -40,11 +40,14 @@
             <i class="fa-solid fa-user"></i><span id="username" class="user-txt">{{ user.username }}</span> <span
                 class="user-txt">님</span>
         </p>
+        <p class="bookmark" id="user-bookmark" onclick="window.location.replace('/bookmark')">
+            <i class="fa-solid fa-bookmark"></i> <span id="userbookmark" class="bookmark-txt">북마크</span>
+        </p>
         <p class="liked" id="user-liked" onclick="window.location.replace('/recommend')">
             <i class="fa-solid fa-heart"></i> <span id="userliked" class="like-txt">추천</span>
         </p>
-        <p class="bookmark" id="user-bookmark" onclick="window.location.replace('/bookmark')">
-            <i class="fa-solid fa-bookmark"></i> <span id="userbookmark" class="bookmark-txt">북마크</span>
+        <p class="random" id="user-random" onclick="window.location.replace('/random')">
+            <i class="fa-solid fa-shuffle"></i> <span id="userrandom" class="random-txt"> 랜덤 추천</span>
         </p>
         <p class="logout" id="user-logout">
             <i class="fa-solid fa-right-from-bracket" id="logout-icon"></i> <a class="logout-txt" id="loginout"

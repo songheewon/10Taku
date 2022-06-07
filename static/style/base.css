@@ -132,7 +132,14 @@ body::-webkit-scrollbar-track {
     transform: scale(1);
 }
 
-.logout-txt, .bookmark-txt, .like-txt, .user-txt {
+.logout-txt {
+    margin-left: 10px;
+    margin-top: -3px;
+    color: white;
+    text-decoration: none;
+}
+
+.bookmark-txt, .like-txt, .user-txt {
     margin-left: 10px;
     margin-top: -3px;
 }

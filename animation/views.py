@@ -79,6 +79,23 @@ def search_view(request):
         paginator = Paginator(search_list, 5)
         page = request.GET.get('page', '')
         posts = paginator.get_page(page)
+        ani_info = {}
+        for anime in search_list:
+            animation = anime.animation
+            genres = Genre.objects.filter(animation__id=animation.id).values()
+            genre_list = []
+            for genre in genres:
+                genre_list.append(genre['name'])
+
+            genre_list = ", ".join(genre_list)
+
+            ani_info[animation.title] = {
+                'id': animation.id,
+                'img': animation.img,
+                'genres': genre_list
+            }
+
+        print(ani_info.items())
 
 
         return render(request, 'animation/search_result.html', {'posts': posts, 'search': search})

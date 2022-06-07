@@ -23,7 +23,6 @@ urlpatterns = [
     path('before-start/', views.select_genre, name='selectgenre'),
     path('genre/', views.genre_view, name='genrepage'),
     path('search/', views.search_view, name='genrepage'),
-    path('bookmark/', views.bookmark_view, name='genrepage'),
     path('', include('user.urls')),
     path('', include('animation.urls')),
     path('', include('detail.urls')),

@@ -12,6 +12,7 @@ def show_detail_view(request):
 def animation_detail(request, id):
     user = request.user
     animation = Animation.objects.get(id=id)
+
     genres = Genre.objects.filter(animation__id=id).values()
     genre_list = []
     if len(genres) > 0:

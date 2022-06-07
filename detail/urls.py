@@ -9,4 +9,5 @@ urlpatterns = [
     path('comment/delete/<int:id>', views.delete_comment, name='delete-comment'),
     path('bookmark/', views.comment, name='comment'),
     path('bookmark/delete/<int:id>', views.delete_comment, name='delete-comment'),
+    path('recommend_toggle/<int:id>', views.recommend_toggle, name='recommend_toggle'),
 ]

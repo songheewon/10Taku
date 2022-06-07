@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Comment, Bookmark
+from .models import Comment, Bookmark, Recommend
 from animation.models import Animation, Genre
 from user.models import UserModel
 
@@ -10,10 +10,10 @@ def show_detail_view(request):
     return render(request, 'animation/detail.html')
 
 
-# @login_required
+@login_required
 def animation_detail(request, id):
+    user = request.user
     animation = Animation.objects.get(id=id)
-    print(animation.story)
     genres = Genre.objects.filter(animation__id=id).values()
     genre_list = []
     if len(genres) > 0:
@@ -24,9 +24,11 @@ def animation_detail(request, id):
     else:
         genre_list = "장르 정보가 없습니다"
 
+    is_recommend = Recommend.objects.filter(user=user, animation=animation).exists()
+
     #컨텐츠 기반 장르 5가지 추천 코드
     #협업필터링 유저추천 5가지 애니메이션 코드
-    return render(request, 'animation/detail.html', {'animation': animation, 'genre': genre_list})
+    return render(request, 'animation/detail.html', {'animation': animation, 'is_recommend': is_recommend, 'genre': genre_list})
 
 
 @login_required
@@ -68,12 +70,23 @@ def delete_comment(request, id):
 #         user.bookmark.add(animation)
 #     return redirect('/detail/' + str(id))
 
-# @login_required
-# def recommend(request, id):
-#     animation = Animation.objects.get(id=id)
-#     user = request.user.is_authenticated
-#     if animation in user.recommend.all():
-#         user.recommend.remove(animation)
-#     else:
-#         user.recommend.add(animation)
-#     return redirect('/detail/' + str(id))
+
+
+@login_required
+def recommend_toggle(request, id):
+    user = request.user
+    animation = Animation.objects.get(id=id)
+
+    try:
+        my_recommend = Recommend.objects.get(user=user, animation=animation)
+        my_recommend.delete()
+        animation.recommend_count -= 1
+        animation.save()
+
+    except Recommend.DoesNotExist:
+        my_recommend = Recommend(user=user, animation=animation) #새로운 객체 만들어서 저장
+        my_recommend.save()
+        animation.recommend_count += 1
+        animation.save()
+        return redirect('/detail/' + str(id))
+    return redirect('/detail/' + str(id))

@@ -11,7 +11,7 @@ def home(request):
 
 
 @login_required
-def my_recommend_view(request):
+def show_recommend_view(request, id):
 
 
     return render(request, 'animation/my_recommend.html')

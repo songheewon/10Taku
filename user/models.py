@@ -10,4 +10,6 @@ class UserModel(AbstractUser):
         db_table = "user"
     fav_genre = models.ManyToManyField(Genre, related_name='users')
     userid = models.CharField(max_length=70, default='')
+    recommends = []
+    bookmarks = []
     # my_recommend = models.ForeignKey(Recommend, on_delete=models.CASCADE)

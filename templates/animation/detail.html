@@ -58,7 +58,11 @@
 
                 <a href="/bookmark/{{ animation.id }}">
                     <button class="comment-btn">
+<<<<<<< HEAD
                         {% if is_bookmark %}
+=======
+                        {% if is_bookmarked %}
+>>>>>>> 211bbace0ed99103bef384f7dbb57daed7fe236f
                             북마크 삭제
                         {% else %}
                             북마크
@@ -66,6 +70,7 @@
                     </button>
                 </a>
                 <a href="/recommend_toggle/{{ animation.id }}">
+<<<<<<< HEAD
                     <button class="comment-btn">
                         {% if is_recommend %}
                             추천 취소
@@ -73,6 +78,15 @@
                             추천 하기
                         {% endif %}
                     </button>
+=======
+                <button class="comment-btn">
+                    {% if is_recommend %}
+                        추천 취소
+                    {% else %}
+                        추천 하기
+                    {% endif %}
+                </button>
+>>>>>>> 211bbace0ed99103bef384f7dbb57daed7fe236f
                 </a>
             </div>
         </div>

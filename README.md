@@ -50,7 +50,8 @@ AI가 사용자에게 애니메이션을 추천해주는 프로그램입니다.
 <br><br><br>
 
 ## 🕘 프로젝트 일정
-2022.06.02 ~ 2022.06.13
+2022.06.02 ~ 2022.06.13<br><br>
+🕘 <a href="https://quixotic-wok-871.notion.site/ad8d2f484f6544d5adc175d0a4bab03b">일정 관리 Notion</a>
 <br><br><br>
 
 
@@ -59,7 +60,7 @@ AI가 사용자에게 애니메이션을 추천해주는 프로그램입니다.
 #### 📕 <a href="https://docs.google.com/spreadsheets/d/1U5XLYUx1arjF-M-XEOD9d2E0mnQH_5hT8s7q26umw2g/edit?usp=sharing">API 설계</a>
 <br><br>
 ## DB 설계 ERD  
-![image](https://user-images.githubusercontent.com/44194990/171596605-422ef533-58ad-4389-a031-0e08d4e83762.png)
+![10takuERD](https://user-images.githubusercontent.com/104349901/172278311-24187929-cba3-4619-932f-e5cdcb172dce.PNG)
 
 ## 📢 <a href="https://www.youtube.com">발표 영상</a>
 

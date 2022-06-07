@@ -22,15 +22,9 @@ def animation_detail(request, id):
     else:
         genre_list = "장르 정보가 없습니다"
 
-<<<<<<< HEAD
-    is_recommend = Recommend.objects.filter(user=user, animation=animation).exists()
 
-    #컨텐츠 기반 장르 5가지 추천 코드
-    #협업필터링 유저추천 5가지 애니메이션 코드
-    return render(request, 'animation/detail.html', {'animation': animation, 'is_recommend': is_recommend, 'genre': genre_list})
-=======
-    is_bookmarked = Bookmark.objects.filter(user=user, animation=animation).exists()
-    is_recommended = Recommend.objects.filter(user=user, animation=animation).exists()
+    is_bookmark = Bookmark.objects.filter(user=user, animation=animation).exists()
+    is_recommend = Recommend.objects.filter(user=user, animation=animation).exists()
     comments = Comment.objects.filter(animation=animation).order_by('-created_at')
 
     #컨텐츠 기반 장르 5가지 추천 코드
@@ -38,11 +32,11 @@ def animation_detail(request, id):
     return render(request, 'animation/detail.html', {
         'animation': animation,
         'genre': genre_list,
-        'is_bookmarked': is_bookmarked,
-        'is_recommended': is_recommended,
+        'is_bookmark': is_bookmark,
+        'is_recommend': is_recommend,
         'comments': comments
     })
->>>>>>> chulhyun_bookmark
+
 
 
 @login_required
@@ -65,6 +59,7 @@ def delete_comment(request, id):
     my_comment.delete()
     return redirect('/detail/' + str(current_ani))
 
+
 @login_required
 def bookmark(request, id):
     user = request.user
@@ -80,21 +75,16 @@ def bookmark(request, id):
     return redirect('/detail/' + str(id))
 
 
-<<<<<<< HEAD
+
 
 @login_required
 def recommend_toggle(request, id):
-=======
-@login_required
-def recommend(request, id):
->>>>>>> chulhyun_bookmark
     user = request.user
     animation = Animation.objects.get(id=id)
 
     try:
         my_recommend = Recommend.objects.get(user=user, animation=animation)
         my_recommend.delete()
-<<<<<<< HEAD
         animation.recommend_count -= 1
         animation.save()
 
@@ -103,10 +93,5 @@ def recommend(request, id):
         my_recommend.save()
         animation.recommend_count += 1
         animation.save()
-=======
-    except Recommend.DoesNotExist:
-        my_recommend = Recommend(user=user, animation=animation)
-        my_recommend.save()
->>>>>>> chulhyun_bookmark
         return redirect('/detail/' + str(id))
     return redirect('/detail/' + str(id))

@@ -24,8 +24,6 @@ urlpatterns = [
     path('genre/', views.genre_view, name='genrepage'),
     path('search/', views.search_view, name='genrepage'),
     path('bookmark/', views.bookmark_view, name='genrepage'),
-    path('signup/', views.sign_up_view, name='signup'),
-    path('login/', views.login_view, name='login'),
     path('', include('user.urls')),
     path('', include('animation.urls')),
     path('', include('detail.urls')),

@@ -9,4 +9,5 @@ class UserModel(AbstractUser):
     class Meta:
         db_table = "user"
     fav_genre = models.ManyToManyField(Genre, related_name='users')
+    userid = models.CharField(max_length=70, default='')
     # my_recommend = models.ForeignKey(Recommend, on_delete=models.CASCADE)

@@ -3,7 +3,6 @@ from .models import UserModel
 from django.contrib.auth import get_user_model
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
 
 
 def sign_up_view(request):

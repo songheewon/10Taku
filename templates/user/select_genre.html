@@ -9,7 +9,7 @@
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="{% static 'style/genrepage.css' %}" rel="stylesheet">
+    <link href="{% static 'style/select_genre.css' %}" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
@@ -17,176 +17,468 @@
     <div class="main-body">
         <!-- 안내문 -->
         <div class="notice">
-            선호하는 장르 3가지를 아래에서 선택해주세요
+            보고싶은 장르 3가지를 선택
         </div>
         <!-- 장르 선택창 -->
-        <form method="post" action="/select/">
+        <form method="post" action="/select_genre/">
             {% csrf_token %}
             <div class="genres">
                 <!-- 1줄 단위 -->
                 <div class="genre-row">
                     <!-- 1칸 단위 -->
-                    <div class="genre-info" onclick="like_click(drama)">
-                        <img src="../../static/image/drama.png"
+                    <div class="genre-info">
+                        <button type="submit" name="genre" value="4" class="genre-btn">
+<<<<<<< HEAD
+                            <img src="../../static/image/drama.png"
+                                 class="card-img-top" style="width: 120px; height: 110px;">
+                            <div class="card-body">
+                                {% if '4' in genre_list %}
+                                    <h3 class="genre-title" style="color: hotpink;">❤드라마❤</h3>
+                                {% else %}
+                                    <h3 class="genre-title">드라마</h3>
+                                {% endif %}
+                            </div>
+=======
+                        <img src="../../static/image/드라마.png"
                              class="card-img-top" style="width: 120px; height: 110px;">
                         <div class="card-body">
-                            <h3 class="genre-title" id="drama">드라마</h3>
+                            {% if '4' in genre_list %}
+                                <h3 class="genre-title" style="color: hotpink;">❤드라마❤</h3>
+                            {% else %}
+                                <h3 class="genre-title">드라마</h3>
+                            {% endif %}
                         </div>
-                    </div>
-                    <div class="genre-info" onclick="like_click(omnibus)">
-                        <img src="../../static/image/omnibus.png"
-                             class="card-img-top" style="width: 120px; height: 110px;">
-                        <div class="card-body">
-                            <h3 class="genre-title" id="omnibus">옴니버스</h3>
-                        </div>
+>>>>>>> detail_kyumin
+                        </button>
                     </div>
                     <div class="genre-info">
-                        <img src="../../static/image/fantasy.png" onclick="like_click(fantasy)"
+                        <button type="submit" name="genre" value="13" class="genre-btn">
+<<<<<<< HEAD
+                            <img src="../../static/image/omnibus.png"
+                                 class="card-img-top" style="width: 120px; height: 110px;">
+                            <div class="card-body">
+                                {% if '13' in genre_list %}
+                                    <h3 class="genre-title" style="color: hotpink;">❤옴니버스❤</h3>
+                                {% else %}
+                                    <h3 class="genre-title">옴니버스</h3>
+                                {% endif %}
+                            </div>
+=======
+                        <img src="../../static/image/옴니버스.png"
                              class="card-img-top" style="width: 120px; height: 110px;">
                         <div class="card-body">
-                            <h3 class="genre-title" id="fantasy">판타지</h3>
+                            {% if '13' in genre_list %}
+                                <h3 class="genre-title" style="color: hotpink;">❤옴니버스❤</h3>
+                            {% else %}
+                                <h3 class="genre-title">옴니버스</h3>
+                            {% endif %}
                         </div>
+>>>>>>> detail_kyumin
+                        </button>
                     </div>
                     <div class="genre-info">
-                        <img src="../../static/image/battle.png" onclick="like_click(battle)"
+                        <button type="submit" name="genre" value="19" class="genre-btn">
+<<<<<<< HEAD
+                            <img src="../../static/image/fantasy.png"
+                                 class="card-img-top" style="width: 120px; height: 110px;">
+                            <div class="card-body">
+                                {% if '19' in genre_list %}
+                                    <h3 class="genre-title" style="color: hotpink;">❤판타지❤</h3>
+                                {% else %}
+                                    <h3 class="genre-title">판타지</h3>
+                                {% endif %}
+                            </div>
+=======
+                        <img src="../../static/image/판타지.png"
                              class="card-img-top" style="width: 120px; height: 110px;">
                         <div class="card-body">
-                            <h3 class="genre-title" id="battle">전투</h3>
+                            {% if '19' in genre_list %}
+                                <h3 class="genre-title" style="color: hotpink;">❤판타지❤</h3>
+                            {% else %}
+                                <h3 class="genre-title">판타지</h3>
+                            {% endif %}
                         </div>
+>>>>>>> detail_kyumin
+                        </button>
                     </div>
                     <div class="genre-info">
-                        <img src="../../static/image/adventure.png" onclick="like_click(adventure)"
+                        <button type="submit" name="genre" value="17" class="genre-btn">
+<<<<<<< HEAD
+                            <img src="../../static/image/battle.png"
+                                 class="card-img-top" style="width: 120px; height: 110px;">
+                            <div class="card-body">
+                                {% if '17' in genre_list %}
+                                    <h3 class="genre-title" style="color: hotpink;">❤전투❤</h3>
+                                {% else %}
+                                    <h3 class="genre-title">전투</h3>
+                                {% endif %}
+                            </div>
+=======
+                        <img src="../../static/image/전투.png"
                              class="card-img-top" style="width: 120px; height: 110px;">
                         <div class="card-body">
-                            <h3 class="genre-title" id="adventure">모험</h3>
+                            {% if '17' in genre_list %}
+                                <h3 class="genre-title" style="color: hotpink;">❤전투❤</h3>
+                            {% else %}
+                                <h3 class="genre-title">전투</h3>
+                            {% endif %}
                         </div>
+>>>>>>> detail_kyumin
+                        </button>
+                    </div>
+                    <div class="genre-info">
+                        <button type="submit" name="genre" value="7" class="genre-btn">
+<<<<<<< HEAD
+                            <img src="../../static/image/adventure.png"
+                                 class="card-img-top" style="width: 120px; height: 110px;">
+                            <div class="card-body">
+                                {% if '7' in genre_list %}
+                                    <h3 class="genre-title" style="color: hotpink;">❤모험❤</h3>
+                                {% else %}
+                                    <h3 class="genre-title">모험</h3>
+                                {% endif %}
+                            </div>
+=======
+                        <img src="../../static/image/모험.png"
+                             class="card-img-top" style="width: 120px; height: 110px;">
+                        <div class="card-body">
+                            {% if '7' in genre_list %}
+                                <h3 class="genre-title" style="color: hotpink;">❤모험❤</h3>
+                            {% else %}
+                                <h3 class="genre-title">모험</h3>
+                            {% endif %}
+                        </div>
+>>>>>>> detail_kyumin
+                        </button>
                     </div>
                 </div>
                 <div class="genre-row">
                     <div class="genre-info">
-                        <img src="../../static/image/school.png" onclick="like_click(school)"
+                        <button type="submit" name="genre" value="20" class="genre-btn">
+<<<<<<< HEAD
+                            <img src="../../static/image/school.png"
+                                 class="card-img-top" style="width: 120px; height: 110px;">
+                            <div class="card-body">
+                                {% if '20' in genre_list %}
+                                    <h3 class="genre-title" style="color: hotpink;">❤학원❤</h3>
+                                {% else %}
+                                    <h3 class="genre-title">학원</h3>
+                                {% endif %}
+                            </div>
+=======
+                        <img src="../../static/image/학교.png"
                              class="card-img-top" style="width: 120px; height: 110px;">
                         <div class="card-body">
-                            <h3 class="genre-title" id="school">학원</h3>
+                            {% if '20' in genre_list %}
+                                <h3 class="genre-title" style="color: hotpink;">❤학원❤</h3>
+                            {% else %}
+                                <h3 class="genre-title">학원</h3>
+                            {% endif %}
                         </div>
+>>>>>>> detail_kyumin
+                        </button>
                     </div>
                     <div class="genre-info">
-                        <img src="../../static/image/daily.png" onclick="like_click(daily)"
+                        <button type="submit" name="genre" value="16" class="genre-btn">
+<<<<<<< HEAD
+                            <img src="../../static/image/daily.png"
+                                 class="card-img-top" style="width: 120px; height: 110px;">
+                            <div class="card-body">
+                                {% if '16' in genre_list %}
+                                    <h3 class="genre-title" style="color: hotpink;">❤일상❤</h3>
+                                {% else %}
+                                    <h3 class="genre-title">일상</h3>
+                                {% endif %}
+                            </div>
+=======
+                        <img src="../../static/image/일상.png"
                              class="card-img-top" style="width: 120px; height: 110px;">
                         <div class="card-body">
-                            <h3 class="genre-title" id="daily">일상</h3>
+                            {% if '16' in genre_list %}
+                                <h3 class="genre-title" style="color: hotpink;">❤일상❤</h3>
+                            {% else %}
+                                <h3 class="genre-title">일상</h3>
+                            {% endif %}
                         </div>
+>>>>>>> detail_kyumin
+                        </button>
                     </div>
                     <div class="genre-info">
-                        <img src="../../static/image/romance.png" onclick="like_click(romance)"
-                             class="card-img-top" style="width: 120px; height: 110px;">
-                        <div class="card-body">
-                            <h3 class="genre-title" id="romance">로맨스</h3>
-                        </div>
+                        <button type="submit" name="genre" value="5" class="genre-btn">
+<<<<<<< HEAD
+                            <img src="../../static/image/romance.png"
+                                 class="card-img-top" style="width: 120px; height: 110px;">
+                            <div class="card-body">
+                                {% if '5' in genre_list %}
+                                    <h3 class="genre-title" style="color: hotpink;">❤로맨스❤</h3>
+                                {% else %}
+                                    <h3 class="genre-title">로맨스</h3>
+                                {% endif %}
+                            </div>
+                        </button>
                     </div>
                     <div class="genre-info">
-                        <img src="../../static/image/horror.png" onclick="like_click(horror)"
+                        <button type="submit" name="genre" value="3" class="genre-btn">
+                            <img src="../../static/image/horror.png"
+                                 class="card-img-top" style="width: 120px; height: 110px;">
+                            <div class="card-body">
+                                {% if '3' in genre_list %}
+                                    <h3 class="genre-title" style="color: hotpink;">❤공포❤</h3>
+                                {% else %}
+                                    <h3 class="genre-title">공포</h3>
+                                {% endif %}
+                            </div>
+=======
+                        <img src="../../static/image/로맨스.png"
                              class="card-img-top" style="width: 120px; height: 110px;">
                         <div class="card-body">
-                            <h3 class="genre-title" id="horror">공포</h3>
+                            {% if '5' in genre_list %}
+                                <h3 class="genre-title" style="color: hotpink;">❤로맨스❤</h3>
+                            {% else %}
+                                <h3 class="genre-title">로맨스</h3>
+                            {% endif %}
                         </div>
+                         </button>
                     </div>
                     <div class="genre-info">
-                        <img src="../../static/image/suspense.png" onclick="like_click(suspense)"
+                        <button type="submit" name="genre" value="3" class="genre-btn">
+                        <img src="../../static/image/공포.png"
                              class="card-img-top" style="width: 120px; height: 110px;">
                         <div class="card-body">
-                            <h3 class="genre-title" id="suspense">서스펜스</h3>
+                            {% if '3' in genre_list %}
+                                <h3 class="genre-title" style="color: hotpink;">❤공포❤</h3>
+                            {% else %}
+                                <h3 class="genre-title">공포</h3>
+                            {% endif %}
                         </div>
+>>>>>>> detail_kyumin
+                        </button>
+                    </div>
+                    <div class="genre-info">
+                        <button type="submit" name="genre" value="10" class="genre-btn">
+<<<<<<< HEAD
+                            <img src="../../static/image/suspense.png"
+                                 class="card-img-top" style="width: 120px; height: 110px;">
+                            <div class="card-body">
+                                {% if '10' in genre_list %}
+                                    <h3 class="genre-title" style="color: hotpink;">❤서스펜스❤</h3>
+                                {% else %}
+                                    <h3 class="genre-title">서스펜스</h3>
+                                {% endif %}
+                            </div>
+=======
+                        <img src="../../static/image/서스펜스.png"
+                             class="card-img-top" style="width: 120px; height: 110px;">
+                        <div class="card-body">
+                            {% if '10' in genre_list %}
+                                <h3 class="genre-title" style="color: hotpink;">❤서스펜스❤</h3>
+                            {% else %}
+                                <h3 class="genre-title">서스펜스</h3>
+                            {% endif %}
+                        </div>
+>>>>>>> detail_kyumin
+                        </button>
                     </div>
                 </div>
                 <div class="genre-row">
                     <div class="genre-info">
-                        <img src="../../static/image/mystery.png" onclick="like_click(mystery)"
+                        <button type="submit" name="genre" value="8" class="genre-btn">
+<<<<<<< HEAD
+                            <img src="../../static/image/mystery.png"
+                                 class="card-img-top" style="width: 120px; height: 110px;">
+                            <div class="card-body">
+                                {% if '8' in genre_list %}
+                                    <h3 class="genre-title" style="color: hotpink;">❤미스테리❤</h3>
+                                {% else %}
+                                    <h3 class="genre-title">미스테리</h3>
+                                {% endif %}
+                            </div>
+=======
+                        <img src="../../static/image/미스테리.png"
                              class="card-img-top" style="width: 120px; height: 110px;">
                         <div class="card-body">
-                            <h3 class="genre-title" id="mystery">미스테리</h3>
+                            {% if '8' in genre_list %}
+                                <h3 class="genre-title" style="color: hotpink;">❤미스테리❤</h3>
+                            {% else %}
+                                <h3 class="genre-title">미스테리</h3>
+                            {% endif %}
                         </div>
+>>>>>>> detail_kyumin
+                        </button>
                     </div>
                     <div class="genre-info">
-                        <img src="../../static/image/munchkin.png" onclick="like_click(munchkin)"
+                        <button type="submit" name="genre" value="6" class="genre-btn">
+<<<<<<< HEAD
+                            <img src="../../static/image/munchkin.png"
+                                 class="card-img-top" style="width: 120px; height: 110px;">
+                            <div class="card-body">
+                                {% if '6' in genre_list %}
+                                    <h3 class="genre-title" style="color: hotpink;">❤먼치킨❤</h3>
+                                {% else %}
+                                    <h3 class="genre-title">먼치킨</h3>
+                                {% endif %}
+                            </div>
+=======
+                        <img src="../../static/image/먼치킨.png"
                              class="card-img-top" style="width: 120px; height: 110px;">
                         <div class="card-body">
-                            <h3 class="genre-title" id="munchkin">먼치킨</h3>
+                            {% if '6' in genre_list %}
+                                <h3 class="genre-title" style="color: hotpink;">❤먼치킨❤</h3>
+                            {% else %}
+                                <h3 class="genre-title">먼치킨</h3>
+                            {% endif %}
                         </div>
+>>>>>>> detail_kyumin
+                        </button>
                     </div>
                     <div class="genre-info">
-                        <img src="../../static/image/SF.png" onclick="like_click(SF)"
-                             class="card-img-top" style="width: 120px; height: 110px;">
-                        <div class="card-body">
-                            <h3 class="genre-title" id="SF">SF</h3>
-                        </div>
+                        <button type="submit" name="genre" value="1" class="genre-btn">
+                            <img src="../../static/image/SF.png"
+                                 class="card-img-top" style="width: 120px; height: 110px;">
+                            <div class="card-body">
+                                {% if '1' in genre_list %}
+                                    <h3 class="genre-title" style="color: hotpink;">❤SF❤</h3>
+                                {% else %}
+                                    <h3 class="genre-title">SF</h3>
+                                {% endif %}
+                            </div>
+                        </button>
                     </div>
                     <div class="genre-info">
-                        <img src="../../static/image/comedy.png" onclick="like_click(comedy)"
+                        <button type="submit" name="genre" value="18" class="genre-btn">
+<<<<<<< HEAD
+                            <img src="../../static/image/comedy.png"
+                                 class="card-img-top" style="width: 120px; height: 110px;">
+                            <div class="card-body">
+                                {% if '18' in genre_list %}
+                                    <h3 class="genre-title" style="color: hotpink;">❤코미디❤</h3>
+                                {% else %}
+                                    <h3 class="genre-title">코미디</h3>
+                                {% endif %}
+                            </div>
+=======
+                        <img src="../../static/image/코미디.png"
                              class="card-img-top" style="width: 120px; height: 110px;">
                         <div class="card-body">
-                            <h3 class="genre-title" id="comedy">코미디</h3>
+                            {% if '18' in genre_list %}
+                                <h3 class="genre-title"  style="color: hotpink;">❤코미디❤</h3>
+                            {% else %}
+                                <h3 class="genre-title">코미디</h3>
+                            {% endif %}
                         </div>
+>>>>>>> detail_kyumin
+                        </button>
                     </div>
                     <div class="genre-info">
-                        <img src="../../static/image/isekai.png" onclick="like_click(isekai)"
+                        <button type="submit" name="genre" value="15" class="genre-btn">
+<<<<<<< HEAD
+                            <img src="../../static/image/isekai.png"
+                                 class="card-img-top" style="width: 120px; height: 110px;">
+                            <div class="card-body">
+                                {% if '15' in genre_list %}
+                                    <h3 class="genre-title" style="color: hotpink;">❤이세계❤</h3>
+                                {% else %}
+                                    <h3 class="genre-title">이세계</h3>
+                                {% endif %}
+                            </div>
+=======
+                        <img src="../../static/image/이세계.png"
                              class="card-img-top" style="width: 120px; height: 110px;">
                         <div class="card-body">
-                            <h3 class="genre-title" id="isekai">이세계</h3>
+                            {% if '15' in genre_list %}
+                                <h3 class="genre-title" style="color: hotpink;">❤이세계❤</h3>
+                            {% else %}
+                                <h3 class="genre-title">이세계</h3>
+                            {% endif %}
                         </div>
+>>>>>>> detail_kyumin
+                        </button>
                     </div>
                 </div>
                 <div class="genre-row">
                     <div class="genre-info">
-                        <img src="../../static/image/family.png" onclick="like_click(family)"
-                             class="card-img-top" style="width: 120px; height: 110px;">
-                        <div class="card-body">
-                            <h3 class="genre-title" id="family">가족</h3>
-                        </div>
+                        <button type="submit" name="genre" value="2" class="genre-btn">
+                            <img src="../../static/image/가족.png"
+                                 class="card-img-top" style="width: 120px; height: 110px;">
+                            <div class="card-body">
+                                {% if '2' in genre_list %}
+                                    <h3 class="genre-title" style="color: hotpink;">❤가족❤</h3>
+                                {% else %}
+                                    <h3 class="genre-title">가족</h3>
+                                {% endif %}
+                            </div>
+                        </button>
                     </div>
                     <div class="genre-info">
-                        <img src="../../static/image/sports.png" onclick="like_click(sports)"
-                             class="card-img-top" style="width: 120px; height: 110px;">
-                        <div class="card-body">
-                            <h3 class="genre-title" id="sports">스포츠</h3>
-                        </div>
+                        <button type="submit" name="genre" value="11" class="genre-btn">
+                            <img src="../../static/image/스포츠.png"
+                                 class="card-img-top" style="width: 120px; height: 110px;">
+                            <div class="card-body">
+                                {% if '11' in genre_list %}
+                                    <h3 class="genre-title" style="color: hotpink;">❤스포츠❤</h3>
+                                {% else %}
+                                    <h3 class="genre-title">스포츠</h3>
+                                {% endif %}
+                            </div>
+                        </button>
                     </div>
                     <div class="genre-info">
-                        <img src="../../static/image/crime.png" onclick="like_click(crime)"
-                             class="card-img-top" style="width: 120px; height: 110px;">
-                        <div class="card-body">
-                            <h3 class="genre-title" id="crime">범죄</h3>
-                        </div>
+                        <button type="submit" name="genre" value="9" class="genre-btn">
+                            <img src="../../static/image/범죄.png"
+                                 class="card-img-top" style="width: 120px; height: 110px;">
+                            <div class="card-body">
+                                {% if '9' in genre_list %}
+                                    <h3 class="genre-title" style="color: hotpink;">❤범죄❤</h3>
+                                {% else %}
+                                    <h3 class="genre-title">범죄</h3>
+                                {% endif %}
+                            </div>
+                        </button>
                     </div>
                     <div class="genre-info">
-                        <img src="../../static/image/monster.png" onclick="like_click(monster)"
-                             class="card-img-top" style="width: 120px; height: 110px;">
-                        <div class="card-body">
-                            <h3 class="genre-title" id="monster">요괴</h3>
-                        </div>
+                        <button type="submit" name="genre" value="14" class="genre-btn">
+                            <img src="../../static/image/요괴.png"
+                                 class="card-img-top" style="width: 120px; height: 110px;">
+                            <div class="card-body">
+                                {% if '14' in genre_list %}
+                                    <h3 class="genre-title" style="color: hotpink;">❤요괴❤</h3>
+                                {% else %}
+                                    <h3 class="genre-title">요괴</h3>
+                                {% endif %}
+                            </div>
+                        </button>
                     </div>
                     <div class="genre-info">
-                        <img src="../../static/image/history.png" onclick="like_click(history)"
-                             class="card-img-top" style="width: 120px; height: 110px;">
-                        <div class="card-body">
-                            <h3 class="genre-title" id="history">시대</h3>
-                        </div>
+                        <button type="submit" name="genre" value="12" class="genre-btn">
+                            <img src="../../static/image/시대.png"
+                                 class="card-img-top" style="width: 120px; height: 110px;">
+                            <div class="card-body">
+                                {% if '12' in genre_list %}
+                                    <h3 class="genre-title" style="color: hotpink;">❤시대❤</h3>
+                                {% else %}
+                                    <h3 class="genre-title">시대</h3>
+                                {% endif %}
+                            </div>
+                        </button>
                     </div>
                 </div>
             </div>
-            <button type="submit" class="select-btn">선택완료</button>
-        </form>
 
+            {% if count == 3 %}
+                <a href="/">
+                    <button type="button" class="select-btn">선택완료</button>
+                </a>
+            {% endif %}
+        </form>
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert alert-{% if message.tag %}{{ message.tags }}{% endif %}" role="alert"
+                         style="color: red; margin-top: -10px;">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
-    <script>
-        function like_click(id) {
-            var genre = $(id).text();
-            if (genre.substr(-1) != '❤') {
-                $(id).text('❤ ' + genre + ' ❤');
-                document.getElementById(id).style.color = 'red';
-            } else {
-                $(id).text(genre.slice(2, -2));
-            }
-        }
-    </script>
 {% endblock %}

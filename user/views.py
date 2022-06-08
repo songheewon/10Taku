@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import UserModel
+from animation.models import Genre
 from django.contrib.auth import get_user_model
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 def sign_up_view(request):
@@ -47,7 +49,7 @@ def login_view(request): #sign_in_view 함수 (요청받은 정보 request)
         if me is not None: #위의 코드에서 사용자 정보를 다비교하고 오기때문에 me만 사용한다. me가 비어있지않다면
             auth.login(request, me) #내정보를 넣어준다.로그인 작업을 해준다.
             print('로그인성공')
-            return redirect('/')  #기본 url로 redirect
+            return redirect('/select_genre')  #select_genre로 redirect
         else:
             print('로그인실패')
             return render(request, 'user/login.html', {'error': '유저이름 혹은 비밀번호를 확인 해 주세요'})
@@ -60,13 +62,41 @@ def login_view(request): #sign_in_view 함수 (요청받은 정보 request)
         return render(request, 'user/login.html') #로그인페이지를 띄워준다.
 
 
-
 @login_required   #사용자가 로그인이 꼭 되어있어야만 접근이 가능한 함수다.
 def logout(request):
+    #로그아웃시 선택했던 장르 삭제
+    user = request.user
+    user.fav_genre.clear()
     auth.logout(request)
+
     return redirect('/')
 
-
+@login_required
 def select_genre_view(request):
+    if request.method == 'POST':
+        user = request.user
+        genre = request.POST.get('genre', '')
+        genres = Genre.objects.get(id=genre)
+
+        exist = user.fav_genre.filter(users__fav_genre=genres).exists()
+        my_genres = user.fav_genre.all().values()
+        genre_count = user.fav_genre.all().count()
+        genre_list = []
+
+        if exist:
+            user.fav_genre.remove(genres)
+        else:
+            if genre_count < 3:
+                user.fav_genre.add(genres)
+            else:
+                messages.error(request, '이미 3개의 장르 선택함.')
+
+        for my_genre in my_genres:
+
+            genre_list.append(str(my_genre['id']))
+
+
+        return render(request, 'user/select_genre.html', {'genre_list': genre_list, 'count': len(genre_list)})
 
     return render(request, 'user/select_genre.html')
+

@@ -25,6 +25,7 @@
     width: 10%;
     font-size: 22px;
     font-weight: bold;
+    white-space: nowrap;
 }
 
 .more-button {
@@ -38,6 +39,7 @@
     color: white;
     font-size: 17px;
     font-weight: bold;
+    white-space: nowrap;
 }
 
 .more-button:hover {
@@ -48,13 +50,15 @@
 
 .genre {
     display: flex;
-    text-align: center;
-    justify-content: center;
-    padding-left: 80px;
-    padding-right: 80px;
+    flex-direction: row;
+    float: left;
+    margin-left: 13.5%;
+    width: 1560px;
+
 }
 
-.col {
+.anime-box {
+    margin-left: 20px;
 }
 
 .card-img-top {
@@ -66,6 +70,7 @@
     color: white;
     font-weight: bold;
     font-size: 22px;
+    width: 170px;
 }
 
 .card-genre {

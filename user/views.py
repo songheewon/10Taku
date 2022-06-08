@@ -71,7 +71,6 @@ def logout(request):
 
     return redirect('/')
 
-
 @login_required
 def select_genre_view(request):
     if request.method == 'POST':
@@ -100,5 +99,4 @@ def select_genre_view(request):
         return render(request, 'user/select_genre.html', {'genre_list': genre_list, 'count': len(genre_list)})
 
     return render(request, 'user/select_genre.html')
-
 

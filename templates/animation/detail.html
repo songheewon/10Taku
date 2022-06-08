@@ -18,8 +18,8 @@
         <div class="left-body">
             <div class="anime-title-box">
                 <p class="anime-title">{{ animation.title }}</p>
-                <p style="color: white; margin: 15px 30px; font-size: 20px; font-weight: bold">추천 수
-                    : {{ animation.recommend_count }} <i class="fa-solid fa-heart" style="transform: scale(0.8);"></i>
+                <p class="recommend-count">
+                    추천 수 : {{ animation.recommend_count }} <i class="fa-solid fa-heart"></i>
                 </p>
             </div>
             <div class="anime-info-body">
@@ -27,18 +27,18 @@
                      class="detail-img">
                 <div class="anime-description">
                     <div class="anime-description-detail-title">
-                        <p>원제</p>
+                        <p class="original-title">원제</p>
                         <p>장르</p>
                         <p>제작사</p>
-                        <p>시청등급</p>
-                        <p>방영연도</p>
+                        <p>시청 등급</p>
+                        <p>방영 연도</p>
                         <p>회차</p>
                     </div>
                     <div class="anime-description-detail">
                         {% if animation.original_title == '' %}
-                            <p class="anime-detail">원제 정보 없음</p>
+                            <p class="anime-detail" style="height: 20px;">원제 정보 없음</p>
                         {% else %}
-                            <p class="anime-detail" style="font-size: 13px;">{{ animation.original_title }}</p>
+                            <p class="anime-detail" style="font-size: 14px; height: 20px;">{{ animation.original_title }}</p>
                         {% endif %}
 
                         {% if genre == '' %}
@@ -74,16 +74,13 @@
                 </div>
             </div>
             <div class="anime-summary-box">
-                <p style="text-align: left">줄거리</p>
+                <p class="summary-txt">줄거리</p>
                 <p>{{ animation.story }}</p>
             </div>
             <div class="anime-btn-box">
-
-
                 <button class="comment-btn" data-toggle="modal" data-target="#commentmodal">
                     <span>댓글 {{ comment_count }}개 보기</span>
                 </button>
-
                 <a href="/bookmark/{{ animation.id }}">
                     <button class="comment-btn">
                         {% if is_bookmark %}
@@ -107,7 +104,7 @@
         <!--- 오른쪽단 애니추천 ----->
         <div class="right-body">
             <div class="genre-recommend">
-                <div style="color:white; margin-top: 10px;">
+                <div class="same-genre">
                     같은 장르 애니
                 </div>
                 <div>
@@ -122,7 +119,7 @@
 
             </div>
             <div class="user-recommend">
-                <div style="color:white; border-top: 1px solid rgb(55, 55, 55); margin-top: 10px;padding-top: 5px;">
+                <div class="same-anime-user">
                     이 애니를 본사람이 즐긴 애니
                 </div>
                 <div>

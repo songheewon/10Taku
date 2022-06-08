@@ -16,6 +16,21 @@ def home(request):
     else:
         return redirect('/login') #인증된 유저가 없다면
 
+# @login_required
+# def main_view(request):
+#     user = request.user
+#     genres = user.fav_genre.all().values()
+#
+#     genre_list = []
+#
+#     for genre in genres:
+#
+#         genre_list.append(genre)
+#
+#
+#
+#     return render(request, 'animation/mainpage.html', {'my_genre': genre_list})
+
 @login_required
 def main_view(request):
     user = request.user
@@ -26,7 +41,11 @@ def main_view(request):
     for main_genre in main_genres:
         # 그 장르가 있는 애니의 첫 6개만 가져오기
         search_list = list(animation_list.filter(Q(genre__name__icontains=main_genre.name)))
+<<<<<<< HEAD
         random_list = random.sample(search_list, len(search_list))[:6]
+=======
+        random_list = random.sample(search_list, len(search_list))[:7]
+>>>>>>> detail_kyumin
         ani_info_list = []
         for animation in random_list:
             genres = Genre.objects.filter(animation__id=animation.id).values()
@@ -38,10 +57,28 @@ def main_view(request):
             ani_info_list.append(ani_info)
 
         genre_ani_info[main_genre] = ani_info_list
+<<<<<<< HEAD
 
     print(genre_ani_info.items())
 
     return render(request, 'animation/mainpage.html', {'genre_ani_info': genre_ani_info.items()})
+=======
+        #키값은 장르 오브젝트, 밸류값을 리스트<< 안의 객체들은 딕셔너리가 7개
+    # print(genre_ani_info) #딕셔너리고
+    # print(genre_ani_info.items()) #튜플형태로 변형
+
+
+    return render(request, 'animation/mainpage.html', {'genre_ani_info': genre_ani_info.items()})
+
+@login_required
+def genre_view(request, id):
+    user = request.user
+    genre = Genre.objects.get(id=id)
+    same_genre = Animation.objects.filter()
+    print(same_genre)
+
+    return render(request, 'animation/genrepage.html', {'genre': genre})
+>>>>>>> detail_kyumin
 
 
 @login_required

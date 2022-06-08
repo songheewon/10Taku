@@ -25,6 +25,7 @@
     width: 10%;
     font-size: 22px;
     font-weight: bold;
+    white-space: nowrap;
 }
 
 .more-button {
@@ -69,6 +70,7 @@
     color: white;
     font-weight: bold;
     font-size: 22px;
+    width: 170px;
 }
 
 .card-genre {

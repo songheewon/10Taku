@@ -3,7 +3,6 @@ from django.contrib.auth.decorators import login_required
 from .models import Comment, Bookmark, Recommend
 from animation.models import Animation, Genre
 import random
-import sklearn
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.neighbors import NearestNeighbors
 import pandas as pd
@@ -41,25 +40,27 @@ def animation_detail(request, id):
         genre_name_list.append(temp)
     genre_name_list = list(map(str, genre_name_list))
     cv = CountVectorizer()
-    genre_vector = cv.fit_transform(genre_name_list)
+
+    genre_vector = cv.fit_transform(list(map(str, genre_name_list)))  # 장르 벡터화
+
+    genre_dic = cv.vocabulary_  # {'sf': 0, '가족': 1 ....}의 dictionary 형태
+
+    neighbors = NearestNeighbors(n_neighbors=6).fit(genre_vector)
+
+    detailpage_contents_recommend = np.zeros((0, 6), int)
 
     genre_info = pd.DataFrame(
         genre_vector.toarray(),
-        columns=list(sorted(cv.vocabulary_.keys(), key=lambda x: cv.vocabulary_[x]))
+        columns=list(sorted(genre_dic.keys(), key=lambda x: genre_dic[x]))
     )
 
-    neighbors = NearestNeighbors(n_neighbors=6).fit(genre_vector)
-    detailpage_contents_recommend = np.zeros((0, 6), int)
-
-
-    knn_dist, idx = neighbors.kneighbors([genre_info.iloc[animation.id, :]])
+    knn_dist, idx = neighbors.kneighbors([genre_info.iloc[0, :]])
     detailpage_contents_recommend = np.append(detailpage_contents_recommend, np.array(idx), axis=0)
-    # detailpage_contents_recommend = detailpage_contents_recommend.tolist()
+    detailpage_contents_recommend = detailpage_contents_recommend.tolist()
+    detailpage_contents_recommend = detailpage_contents_recommend[0]
 
     for idx in range(len(detailpage_contents_recommend)):
         detailpage_contents_recommend[idx] += 1
-    detailpage_contents_recommend = detailpage_contents_recommend.tolist()
-    detailpage_contents_recommend = detailpage_contents_recommend[0]
     print(detailpage_contents_recommend)
 
 
@@ -77,7 +78,7 @@ def animation_detail(request, id):
         'is_recommend': is_recommend,
         'comments': comments,
         'comment_count': comment_count,
-        'recommend_animations': detailpage_contents_recommend
+        'recommend_animations': detailpage_contents_recommend,
     })
 
 

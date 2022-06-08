@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Genre, Animation
+from user.models import UserModel
 from django.db.models import Q
 from detail.models import Recommend, Bookmark
 
@@ -14,13 +15,28 @@ def home(request):
     else:
         return redirect('/login') #인증된 유저가 없다면
 
+@login_required
+def main_view(request):
+    user = request.user
+    genres = user.fav_genre.all().values()
+
+    genre_list = []
+
+    for genre in genres:
+
+        genre_list.append(genre['name'])
+    print(genre_list)
+
+
+    return render(request, 'animation/mainpage.html', {'my_genre': genre_list})
+
 
 @login_required
 def show_recommend_view(request):
-
     user = request.user
     recommends = Recommend.objects.filter(user=user)
     ani_info = {}
+
     for recommend in recommends:
         animation = recommend.animation
         genres = Genre.objects.filter(animation__id=animation.id).values()

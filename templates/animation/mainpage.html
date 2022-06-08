@@ -19,24 +19,26 @@
         <!-- 장르 이름, 더보기 버튼 -->
         {% for genre, animations in genre_ani_info %}
             <header class="genre-header">
-                <div class="genre-name"><i class="fa-regular fa-folder-open"></i> {{ genre }}</div>
+                <div class="genre-name"><i class="fa-regular fa-folder-open"></i> {{ genre.name }}</div>
                 <button class="more-button">+ 더보기</button>
             </header>
             <div class="genre">
                 <!-- 하나의 애니메이션 정보(사진, 제목, 장르) 출력 단위 -->
                 {% for animation in animations %}
-                    <div class="anime-box">
-                        <div class="animation-info">
-                            <a href="/detail/{{ animation.id }}">
-                                <img src='{{ animation.img }}'
-                                     class="card-img-top" width="270px" height="500px">
-                            </a>
-                            <div class="card-body">
-                                <h3 class="card-title" style="font-size: 18px;">{{ animation.title }}</h3>
-                                <h5 class="card-genre">{{ animation.genres }}</h5>
+                    <a href='/detail/{{ animation.id }}'>
+                        <div class="anime-box">
+                            <div class="animation-info">
+                                <a href="/detail/{{ animation.id }}">
+                                    <img src='{{ animation.img }}'
+                                         class="card-img-top" width="270px" height="500px">
+                                </a>
+                                <div class="card-body">
+                                    <h3 class="card-title" style="font-size: 18px;">{{ animation.title }}</h3>
+                                    <h5 class="card-genre">{{ animation.genres }}</h5>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 {% endfor %}
             </div>
         {% endfor %}

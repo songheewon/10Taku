@@ -19,16 +19,16 @@ def home(request):
 @login_required
 def main_view(request):
     user = request.user
-    maingenres = list(user.fav_genre.all())
+    main_genres = list(user.fav_genre.all())
     animation_list = Animation.objects.all()
 
     genre_ani_info = {}
-    for maingenre in maingenres:
+    for main_genre in main_genres:
         # 그 장르가 있는 애니의 첫 6개만 가져오기
-        search_list = list(animation_list.filter(Q(genre__name__icontains=maingenre.name)))[:5]
-        # random_list = random.sample(search_list, 7)
+        search_list = list(animation_list.filter(Q(genre__name__icontains=main_genre.name)))
+        random_list = random.sample(search_list, len(search_list))[:6]
         ani_info_list = []
-        for animation in search_list:
+        for animation in random_list:
             genres = Genre.objects.filter(animation__id=animation.id).values()
             genre_list = []
             for genre in genres:
@@ -37,7 +37,7 @@ def main_view(request):
             ani_info = {'title': animation.title, 'img': animation.img, 'genre': genre_list, 'id': animation.id}
             ani_info_list.append(ani_info)
 
-        genre_ani_info[maingenre.name] = ani_info_list
+        genre_ani_info[main_genre] = ani_info_list
 
     print(genre_ani_info.items())
 

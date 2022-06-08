@@ -21,19 +21,19 @@
             <div class="genre-name"><i class="fa-solid fa-magnifying-glass"></i></i> ' {{ search }} ' 검색 결과</div>
         </div>
         <!-- 장르별 애니메이션 출력 부분 -->
-        <div class="genre">
+        <div class="genre" style="margin-top: 4.2%">
             <div class="genre-anime">
                 <!-- 하나의 애니메이션 정보(사진, 제목, 장르) 출력 단위 -->
-                {% for ani, info in ani_info %}
+                {% for ani in ani_info %}
                     <div class="anime-box">
                         <div class="animation-info">
-                            <a href="/detail/{{ info.id }}">
-                                <img src='{{ info.img }}'
+                            <a href="/detail/{{ ani.id }}">
+                                <img src='{{ ani.img }}'
                                      class="card-img-top" width="270px" height="500px">
                             </a>
                             <div class="card-body">
-                                <h3 class="card-title" style="font-size: 18px;">{{ ani }}</h3>
-                                <h5 class="card-genre">{{ info.genres }}</h5>
+                                <h3 class="card-title" style="font-size: 18px;">{{ ani.title }}</h3>
+                                <h5 class="card-genre">{{ ani.genre }}</h5>
                             </div>
                         </div>
                     </div>

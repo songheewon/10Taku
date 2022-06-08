@@ -24,11 +24,19 @@ def main_view(request):
 
     for genre in genres:
 
-        genre_list.append(genre['name'])
-    print(genre_list)
+        genre_list.append(genre)
+
 
 
     return render(request, 'animation/mainpage.html', {'my_genre': genre_list})
+
+@login_required
+def genre_view(request, id):
+    user = request.user
+    genre = Genre.objects.get(id=id)
+    print(genre.name)
+
+    return render(request, 'animation/genrepage.html', {'genre': genre})
 
 
 @login_required

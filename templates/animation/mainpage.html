@@ -19,8 +19,12 @@
         <!-- 장르 이름, 더보기 버튼 -->
         {% for genre in my_genre %}
             <header class="genre-header">
-                <div class="genre-name"><i class="fa-regular fa-folder-open"></i> {{ genre }}</div>
-                <button class="more-button">+ 더보기</button>
+                <div class="genre-name"><img src="../../static/image/{{genre.name}}.png" style="height: 25px; width: 25px; filter :brightness(0) invert(1);">
+                    {{ genre.name }}
+                </div>
+                <a href="/genre/{{ genre.id }}">
+                    <button class="more-button">+ 더보기</button>
+                </a>
             </header>
             <div class="genre">
                 <!-- 하나의 애니메이션 정보(사진, 제목, 장르) 출력 단위 -->

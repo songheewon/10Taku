@@ -19,7 +19,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('genre/', views.genre_view, name='genrepage'),
     path('', include('user.urls')),
     path('', include('animation.urls')),
     path('', include('detail.urls')),

@@ -54,8 +54,14 @@ def animation_detail(request, id):
 
     knn_dist, idx = neighbors.kneighbors([genre_info.iloc[animation.id, :]])
     detailpage_contents_recommend = np.append(detailpage_contents_recommend, np.array(idx), axis=0)
+    # detailpage_contents_recommend = detailpage_contents_recommend.tolist()
+
+    for idx in range(len(detailpage_contents_recommend)):
+        detailpage_contents_recommend[idx] += 1
     detailpage_contents_recommend = detailpage_contents_recommend.tolist()
+    detailpage_contents_recommend = detailpage_contents_recommend[0]
     print(detailpage_contents_recommend)
+
 
     is_bookmark = Bookmark.objects.filter(user=user, animation=animation).exists()
     is_recommend = Recommend.objects.filter(user=user, animation=animation).exists()

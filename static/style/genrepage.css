@@ -69,3 +69,7 @@
 .select-btn:hover {
     transform: scale(1.1);
 }
+
+.genre-btn {
+    background-color: rgb(30, 30, 30);
+}

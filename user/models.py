@@ -11,3 +11,4 @@ class UserModel(AbstractUser):
     fav_genre = models.ManyToManyField(Genre, related_name='users')
     userid = models.CharField(max_length=70, default='')
 
+

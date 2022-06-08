@@ -4,6 +4,7 @@ from .models import Genre, Animation
 from user.models import UserModel
 from django.db.models import Q
 from detail.models import Recommend, Bookmark
+import random
 
 
 
@@ -18,17 +19,29 @@ def home(request):
 @login_required
 def main_view(request):
     user = request.user
-    genres = user.fav_genre.all().values()
+    maingenres = list(user.fav_genre.all())
+    animation_list = Animation.objects.all()
 
-    genre_list = []
+    genre_ani_info = {}
+    for maingenre in maingenres:
+        # 그 장르가 있는 애니의 첫 6개만 가져오기
+        search_list = list(animation_list.filter(Q(genre__name__icontains=maingenre.name)))[:5]
+        # random_list = random.sample(search_list, 7)
+        ani_info_list = []
+        for animation in search_list:
+            genres = Genre.objects.filter(animation__id=animation.id).values()
+            genre_list = []
+            for genre in genres:
+                genre_list.append(genre['name'])
+            genre_list = ", ".join(genre_list)
+            ani_info = {'title': animation.title, 'img': animation.img, 'genre': genre_list, 'id': animation.id}
+            ani_info_list.append(ani_info)
 
-    for genre in genres:
+        genre_ani_info[maingenre.name] = ani_info_list
 
-        genre_list.append(genre['name'])
-    print(genre_list)
+    print(genre_ani_info.items())
 
-
-    return render(request, 'animation/mainpage.html', {'my_genre': genre_list})
+    return render(request, 'animation/mainpage.html', {'genre_ani_info': genre_ani_info.items()})
 
 
 @login_required
@@ -102,6 +115,7 @@ def search_view(request):
             dic = {'img': img, 'title': title, 'genre': genre_list, 'id': anime.id}
             ani_info.append(dic)
 
+        print(ani_info)
 
         return render(request, 'animation/search_result.html', {'search': search, 'ani_info': ani_info})
     return render(request, 'animation/search_result.html')

@@ -152,25 +152,28 @@
                         </div>
                     </div>
                     <div class="genre-info">
-                        <img src="../../static/image/crime.png" onclick="like_click(crime)"
+                        <img src="../../static/image/crime.png" onclick="like_click(crime), sendName(event)"
                              class="card-img-top" style="width: 120px; height: 110px;">
                         <div class="card-body">
                             <h3 class="genre-title" id="crime">범죄</h3>
                         </div>
                     </div>
                     <div class="genre-info">
-                        <img src="../../static/image/monster.png" onclick="like_click(monster)"
+                        <img src="../../static/image/monster.png" onclick="like_click(monster); sendName(event)">
                              class="card-img-top" style="width: 120px; height: 110px;">
                         <div class="card-body">
                             <h3 class="genre-title" id="monster">요괴</h3>
                         </div>
                     </div>
                     <div class="genre-info">
-                        <img src="../../static/image/history.png" onclick="like_click(history)"
-                             class="card-img-top" style="width: 120px; height: 110px;">
-                        <div class="card-body">
-                            <h3 class="genre-title" id="history">시대</h3>
-                        </div>
+                        <button type="submit" class="select-btn">
+                            <img src="../../static/image/history.png"
+                                 class="card-img-top" style="width: 120px; height: 110px;">
+
+                            <div class="card-body">
+                                    <h3 class="genre-title" id="history" name="genre">시대</h3>
+                            </div>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -183,10 +186,28 @@
             var genre = $(id).text();
             if (genre.substr(-1) != '❤') {
                 $(id).text('❤ ' + genre + ' ❤');
-                document.getElementById(id).style.color = 'red';
             } else {
                 $(id).text(genre.slice(2, -2));
             }
+
         }
+
+        function sendName(e) {
+            let name = e.target.parentNode.querySelector('.genre-title').textContent;
+            console.log(name)
+            $.ajax({
+                type: 'POST',
+                url: '/select',
+                data: {
+                    name_give: name,
+                },
+                success: function (response) {
+                    alert;
+                },
+            });
+        }
+
+
+
     </script>
 {% endblock %}

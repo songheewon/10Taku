@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import UserModel
+from animation.models import Genre
 from django.contrib.auth import get_user_model
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
@@ -66,7 +67,16 @@ def logout(request):
     auth.logout(request)
     return redirect('/')
 
-
+@login_required
 def select_genre_view(request):
 
     return render(request, 'user/select_genre.html')
+
+@login_required
+def select(request):
+    if request.method == 'POST':
+        user = request.user
+        name = request.POST.get('name')
+        genre = Genre.objects.get(name=name)
+
+

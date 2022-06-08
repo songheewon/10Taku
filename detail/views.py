@@ -3,9 +3,9 @@ from django.contrib.auth.decorators import login_required
 from .models import Comment, Bookmark, Recommend
 from animation.models import Animation, Genre
 import random
-import sklearn
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.neighbors import NearestNeighbors
+# import sklearn
+# from sklearn.feature_extraction.text import CountVectorizer
+# from sklearn.neighbors import NearestNeighbors
 
 
 #애니메이션 상세 페이지
@@ -25,12 +25,12 @@ def animation_detail(request, id):
     else:
         genre_list = "장르 정보가 없습니다"
 
-    for anime in animations:
-        genre_name = anime['name']
-        cv = CountVectorizer()
-        genre_vector = cv.fit_transform(genre_name)  # 장르 벡터화, animations.genre 부분은 animation import해서 수정해야함
-
-        print(genre_vector)
+    # for anime in animations:
+    #     genre_name = anime['name']
+    #     cv = CountVectorizer()
+    #     genre_vector = cv.fit_transform(genre_name)  # 장르 벡터화, animations.genre 부분은 animation import해서 수정해야함
+    #
+    #     print(genre_vector)
 
     is_bookmark = Bookmark.objects.filter(user=user, animation=animation).exists()
     is_recommend = Recommend.objects.filter(user=user, animation=animation).exists()

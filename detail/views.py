@@ -3,13 +3,8 @@ from django.contrib.auth.decorators import login_required
 from .models import Comment, Bookmark, Recommend
 from animation.models import Animation, Genre
 import random
-<<<<<<< HEAD
-# from sklearn.feature_extraction.text import CountVectorizer
-# from sklearn.neighbors import NearestNeighbors
-=======
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.neighbors import NearestNeighbors
->>>>>>> detail_kyumin
 import pandas as pd
 import numpy as np
 
@@ -36,32 +31,7 @@ def animation_detail(request, id):
         genre_list = "장르 정보가 없습니다"
 
     genre_name_list = []
-<<<<<<< HEAD
-    # for anime in animations:
-    #     info = anime.genre.values()
-    #     temp = []
-    #     for i in info:
-    #         temp.append(i['name'])
-    #     genre_name_list.append(temp)
-    # genre_name_list = list(map(str, genre_name_list))
-    # cv = CountVectorizer()
-    # genre_vector = cv.fit_transform(genre_name_list)
-    #
-    # genre_info = pd.DataFrame(
-    #     genre_vector.toarray(),
-    #     columns=list(sorted(cv.vocabulary_.keys(), key=lambda x: cv.vocabulary_[x]))
-    # )
-    #
-    # neighbors = NearestNeighbors(n_neighbors=6).fit(genre_vector)
-    # detailpage_contents_recommend = np.zeros((0, 6), int)
-    #
-    #
-    # knn_dist, idx = neighbors.kneighbors([genre_info.iloc[animation.id, :]])
-    # detailpage_contents_recommend = np.append(detailpage_contents_recommend, np.array(idx), axis=0)
-    # detailpage_contents_recommend = detailpage_contents_recommend.tolist()
-    # print(detailpage_contents_recommend)
-    #
-=======
+
     for anime in animations:
         info = anime.genre.values()
         temp = []
@@ -94,7 +64,6 @@ def animation_detail(request, id):
     print(detailpage_contents_recommend)
 
 
->>>>>>> detail_kyumin
     is_bookmark = Bookmark.objects.filter(user=user, animation=animation).exists()
     is_recommend = Recommend.objects.filter(user=user, animation=animation).exists()
     comments = Comment.objects.filter(animation=animation).order_by('-created_at')
@@ -109,11 +78,7 @@ def animation_detail(request, id):
         'is_recommend': is_recommend,
         'comments': comments,
         'comment_count': comment_count,
-<<<<<<< HEAD
-        # 'recommend_animations': detailpage_contents_recommend
-=======
         'recommend_animations': detailpage_contents_recommend,
->>>>>>> detail_kyumin
     })
 
 

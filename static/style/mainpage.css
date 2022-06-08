@@ -48,13 +48,15 @@
 
 .genre {
     display: flex;
-    text-align: center;
-    justify-content: center;
-    padding-left: 80px;
-    padding-right: 80px;
+    flex-direction: row;
+    float: left;
+    margin-left: 8.5%;
+    width: 1560px;
+
 }
 
-.col {
+.anime-box {
+    margin-left: 20px;
 }
 
 .card-img-top {

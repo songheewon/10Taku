@@ -3,9 +3,10 @@ from django.contrib.auth.decorators import login_required
 from .models import Comment, Bookmark, Recommend
 from animation.models import Animation, Genre
 import random
-# import sklearn
 # from sklearn.feature_extraction.text import CountVectorizer
 # from sklearn.neighbors import NearestNeighbors
+import pandas as pd
+import numpy as np
 
 
 #애니메이션 상세 페이지
@@ -13,9 +14,13 @@ import random
 def animation_detail(request, id):
     user = request.user
     animation = Animation.objects.get(id=id)
-    animations = Genre.objects.all().values()
+    animations = Animation.objects.all()
+    # filter(genre__animation__in=animation.genre)
     genres = Genre.objects.filter(animation__id=id).values()
+    print(animation.id)
     genre_list = []
+
+    #역참조? 필터링한다음에 벡터를 돌려본다
 
     if len(genres) > 0:
         for genre in genres:
@@ -25,13 +30,31 @@ def animation_detail(request, id):
     else:
         genre_list = "장르 정보가 없습니다"
 
+    genre_name_list = []
     # for anime in animations:
-    #     genre_name = anime['name']
-    #     cv = CountVectorizer()
-    #     genre_vector = cv.fit_transform(genre_name)  # 장르 벡터화, animations.genre 부분은 animation import해서 수정해야함
+    #     info = anime.genre.values()
+    #     temp = []
+    #     for i in info:
+    #         temp.append(i['name'])
+    #     genre_name_list.append(temp)
+    # genre_name_list = list(map(str, genre_name_list))
+    # cv = CountVectorizer()
+    # genre_vector = cv.fit_transform(genre_name_list)
     #
-    #     print(genre_vector)
-
+    # genre_info = pd.DataFrame(
+    #     genre_vector.toarray(),
+    #     columns=list(sorted(cv.vocabulary_.keys(), key=lambda x: cv.vocabulary_[x]))
+    # )
+    #
+    # neighbors = NearestNeighbors(n_neighbors=6).fit(genre_vector)
+    # detailpage_contents_recommend = np.zeros((0, 6), int)
+    #
+    #
+    # knn_dist, idx = neighbors.kneighbors([genre_info.iloc[animation.id, :]])
+    # detailpage_contents_recommend = np.append(detailpage_contents_recommend, np.array(idx), axis=0)
+    # detailpage_contents_recommend = detailpage_contents_recommend.tolist()
+    # print(detailpage_contents_recommend)
+    #
     is_bookmark = Bookmark.objects.filter(user=user, animation=animation).exists()
     is_recommend = Recommend.objects.filter(user=user, animation=animation).exists()
     comments = Comment.objects.filter(animation=animation).order_by('-created_at')
@@ -45,7 +68,8 @@ def animation_detail(request, id):
         'is_bookmark': is_bookmark,
         'is_recommend': is_recommend,
         'comments': comments,
-        'comment_count': comment_count
+        'comment_count': comment_count,
+        # 'recommend_animations': detailpage_contents_recommend
     })
 
 

@@ -12,12 +12,18 @@
     <link href="{% static 'style/mainpage.css' %}" rel="stylesheet">
 {% endblock %}
 
+
 {% block content %}
+    <!-- 헤더 외의 부분 -->
     <div class="main-body">
         <!-- 장르 이름, 더보기 버튼 -->
         {% for genre, animations in genre_ani_info %}
             <header class="genre-header">
-                <div class="genre-name"><img src="../../static/image/{{genre.name}}.png" style="height: 25px; width: 25px; filter :brightness(0) invert(1);"> {{ genre.name }}</div>
+                <div class="genre-name">
+                    <img src="../../static/image/{{ genre.name }}.png"
+                         style="height: 40px; width: 40px; filter :brightness(0) invert(1);">
+                    {{ genre.name }}
+                </div>
                 <a href="/more/{{ genre.id }}">
                     <button class="more-button">+ 더보기</button>
                 </a>
@@ -25,6 +31,7 @@
             <div class="genre">
                 <!-- 장르별 애니메이션 출력 부분 -->
                 {% for animation in animations %}
+                    <a href='/detail/{{ animation.id }}'>
                         <div class="anime-box">
                             <div class="animation-info">
                                 <a href="/detail/{{ animation.id }}">
@@ -36,7 +43,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 {% endfor %}
             </div>
         {% endfor %}

@@ -68,7 +68,6 @@ def animation_detail(request, id):
         same_genre_ani = Animation.objects.get(id=recommend_ani_id)
         same_genre_ani_list.append(same_genre_ani)
 
-    print(same_genre_ani_list)
 
     is_bookmark = Bookmark.objects.filter(user=user, animation=animation).exists()
     is_recommend = Recommend.objects.filter(user=user, animation=animation).exists()

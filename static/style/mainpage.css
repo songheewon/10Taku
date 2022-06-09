@@ -92,23 +92,57 @@
     position: relative;
 }
 
-@media screen and (max-width: 640px) {
-    .genre {
-        margin-left: 2%;
-    }
+@media screen and (max-width: 830px) {
     .genre-header {
-        margin-top: 15%;
+        margin-top: 10%;
         margin-bottom: 4%;
         margin-right: 10%;
-        width: 420px;
+        max-width: 800px;
+    }
+    .genre {
+        margin-left: 3%;
     }
     .card-img-top {
-        width: 120px;
-        height: 150px;
+        max-width: 200px;
+        max-height: 250px;
         border-radius: 30%;
     }
     .card-title {
-        width: 100px;
+        width: 200px;
+        font-size: 14px;
+    }
+
+}
+
+@media screen and (max-width: 770px){
+    .genre {
+        margin-left: 0;
+    }
+    .card-img-top {
+        max-width: 180px;
+        max-height: 230px;
+        border-radius: 30%;
+    }
+
+}
+@media screen and (max-width: 640px) {
+    .genre {
+        margin-left: 2%;
+        float: left;
+    }
+    .genre-header {
+        margin-top: 18%;
+        max-width: 370px;
+    }
+    .anime-box {
+        margin-left: 5px;
+    }
+    .card-img-top {
+        width: 93px;
+        height: 120px;
+    }
+    .card-title {
+        width: 93px;
         font-size: 14px;
     }
 }

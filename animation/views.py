@@ -52,7 +52,7 @@ def main_view(request):
         genre_ani_info[main_genre] = ani_info_list
 
     # 유저 기반 추천 모델
-    if len(Recommend.objects.filter(user__id=user.id)) > 0:
+    if len(Recommend.objects.filter(user__id=user.id)) > 0 and len(Recommend.objects.all()) > len(Recommend.objects.filter(user__id=user.id)):
         user_ratings = pd.DataFrame(list(Recommend.objects.all().values()))
         user_ratings.set_index('id', inplace=False)
         user_ratings = user_ratings[['user_id', 'animation_id']]
@@ -64,9 +64,9 @@ def main_view(request):
         user_based_collab = pd.DataFrame(user_based_collab, index=user_ratings.index, columns=user_ratings.index)
         print(user_based_collab)
         print(user_based_collab[user.id])
-        user = user_based_collab[user.id].sort_values(ascending=False)[:5].index[1]
+        user = user_based_collab[user.id].sort_values(ascending=False).index[1]
         result = user_ratings.query(f"user_id == {user}").sort_values(ascending=False, by=user, axis=1)
-        recommend_anis = list(result.keys())[:5]
+        recommend_anis = list(result.keys())[:6]
 
         recommend_anis_list = []
         for recommend_ani in recommend_anis:

@@ -51,7 +51,7 @@
     /*background-image: linear-gradient(to right bottom, #1f1f1f, #242424, #282828, #2d2d2d, #323232);*/
     background-image: linear-gradient(to right bottom, #2c2c2c, #2e2e2e, #303030, #323232, #343434, #373737, #393939, #3c3c3c, #404040, #444444, #484848, #4c4c4c);
     margin-top: 15px;
-    max-height: 400px;
+    max-height: 800px;
     text-align: center;
     color: white;
     padding: 2px 10px 10px 10px;
@@ -242,30 +242,45 @@ body.modal-open {
 }
 
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 820px) {
     .detail-body {
         display: flex;
         flex-direction: column;
     }
 
     .left-body {
+        max-width: 818px;
+        width: 100%;
         margin-top: -20px;
         padding-left: 10px;
         padding-right: 10px;
-        max-height: 860px;
+        max-height: 1600px;
         height: 100%;
 
     }
 
     .right-body {
         margin-top: 18px;
-        width: 440px;
+        max-width: 755px;
+        padding-bottom: 30px;
+        margin-bottom: 10%;
+        height: 800px;
+        width: 100%;
+        background-image: none;
+        background-color: transparent;
+    }
+    .modal-content {
+        height: 900px;
     }
 
 
 }
 
 @media screen and (max-width: 640px) {
+    .right-body {
+        max-width: 380px;
+        margin-left: 15px;
+    }
     .anime-title {
         font-size: 16px;
     }
@@ -276,8 +291,8 @@ body.modal-open {
     }
 
     .detail-img {
-        width: 240px;
-        height: 350px;
+        max-width: 200px;
+        height: 250px;
         padding: 20px 0 20px 20px;
     }
     .original-title {
@@ -288,16 +303,27 @@ body.modal-open {
     }
     .anime-detail-company {
         height: 20px;
-        font-size: 14px;
+        font-size: 12px;
     }
     .anime-detail {
         height: 22px;
-        font-size: 14px;
+        width: 100px;
+        font-size: 12px;
     }
     .recommend-count {
         font-size: 16px;
     }
-
-
+    .anime-description {
+        font-size: 12px;
+    }
+    .modal-content {
+        width: 350px;
+        height: 600px;
+        margin-left: 7%;
+        margin-top: 30%;
+    }
+    .summary-text, .summary-txt {
+        font-size: 12px;
+    }
 }
 

@@ -18,7 +18,7 @@
         {% for genre, animations in genre_ani_info %}
             <header class="genre-header">
                 <div class="genre-name"><img src="../../static/image/{{genre.name}}.png" style="height: 25px; width: 25px; filter :brightness(0) invert(1);"> {{ genre.name }}</div>
-                <a href="/more/{{ genre.id }}">
+                <a href="/genre/{{ genre.id }}">
                     <button class="more-button">+ 더보기</button>
                 </a>
             </header>

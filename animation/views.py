@@ -155,4 +155,4 @@ def more_view(request, id):
 
         genre_ani_info[more_genre] = ani_info_list
 
-    return render(request, 'animation/more.html', {'genre_ani_info': genre_ani_info.items()})
+    return render(request, 'animation/genrepage.html', {'genre_ani_info': genre_ani_info.items()})

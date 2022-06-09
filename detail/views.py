@@ -15,12 +15,9 @@ def animation_detail(request, id):
     user = request.user
     animation = Animation.objects.get(id=id)
     animations = Animation.objects.all()
-    # filter(genre__animation__in=animation.genre)
     genres = Genre.objects.filter(animation__id=id).values()
-    print(animation.id)
-    genre_list = []
 
-    #역참조? 필터링한다음에 벡터를 돌려본다
+    genre_list = []
 
     if len(genres) > 0:
         for genre in genres:
@@ -38,16 +35,16 @@ def animation_detail(request, id):
         for i in info:
             temp.append(i['name'])
         genre_name_list.append(temp)
-    print(genre_name_list)
+
     genre_name_list = list(map(str, genre_name_list))
-    print(genre_name_list)
+
     cv = CountVectorizer()
 
     genre_vector = cv.fit_transform(list(map(str, genre_name_list)))  # 장르 벡터화
-    print(genre_vector)
+
 
     genre_dic = cv.vocabulary_  # {'sf': 0, '가족': 1 ....}의 dictionary 형태
-    print(genre_dic)
+
 
     neighbors = NearestNeighbors(n_neighbors=5).fit(genre_vector)
 
@@ -65,7 +62,6 @@ def animation_detail(request, id):
 
     for idx in range(len(detailpage_contents_recommend)):
         detailpage_contents_recommend[idx] += 1
-    print(detailpage_contents_recommend)
 
     same_genre_ani_list = []
     for recommend_ani_id in detailpage_contents_recommend:
@@ -74,16 +70,11 @@ def animation_detail(request, id):
 
     print(same_genre_ani_list)
 
-
     is_bookmark = Bookmark.objects.filter(user=user, animation=animation).exists()
     is_recommend = Recommend.objects.filter(user=user, animation=animation).exists()
     comments = Comment.objects.filter(animation=animation).order_by('-created_at')
     comment_count = len(Comment.objects.filter(animation=animation).order_by('-created_at'))
 
-
-
-    #컨텐츠 기반 장르 5가지 추천 코드
-    #협업필터링 유저추천 5가지 애니메이션 코드
     return render(request, 'animation/detail.html', {
         'animation': animation,
         'genre': genre_list,
@@ -93,7 +84,6 @@ def animation_detail(request, id):
         'comment_count': comment_count,
         'same_genre_ani_list': same_genre_ani_list,
     })
-
 
 #댓글 달기
 @login_required

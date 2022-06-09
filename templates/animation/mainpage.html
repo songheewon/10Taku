@@ -19,7 +19,11 @@
         <!-- 장르 이름, 더보기 버튼 -->
         {% for genre, animations in genre_ani_info %}
             <header class="genre-header">
-                <div class="genre-name"><i class="fa-regular fa-folder-open"></i> {{ genre.name }}</div>
+                <div class="genre-name">
+                                        <img src="../../static/image/{{genre.name}}.png" style="height: 40px; width: 40px; filter :brightness(0) invert(1);">
+
+                    {{ genre.name }}
+                </div>
                 <button class="more-button">+ 더보기</button>
             </header>
             <div class="genre">

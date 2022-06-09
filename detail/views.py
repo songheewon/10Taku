@@ -46,9 +46,9 @@ def animation_detail(request, id):
     genre_dic = cv.vocabulary_  # {'sf': 0, '가족': 1 ....}의 dictionary 형태
 
 
-    neighbors = NearestNeighbors(n_neighbors=5).fit(genre_vector)
+    neighbors = NearestNeighbors(n_neighbors=10).fit(genre_vector)
 
-    detailpage_contents_recommend = np.zeros((0, 5), int)
+    detailpage_contents_recommend = np.zeros((0, 10), int)
 
     genre_info = pd.DataFrame(
         genre_vector.toarray(),

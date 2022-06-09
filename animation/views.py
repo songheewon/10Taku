@@ -16,6 +16,7 @@ def home(request):
     else:
         return redirect('/login') #인증된 유저가 없다면
 
+
 @login_required
 def main_view(request):
     user = request.user
@@ -27,6 +28,7 @@ def main_view(request):
         # 그 장르가 있는 애니의 첫 6개만 가져오기
         search_list = list(animation_list.filter(Q(genre__name__icontains=main_genre.name)))
         random_list = random.sample(search_list, len(search_list))[:6]
+
         ani_info_list = []
         for animation in random_list:
             genres = Genre.objects.filter(animation__id=animation.id).values()
@@ -42,6 +44,17 @@ def main_view(request):
     print(genre_ani_info.items())
 
     return render(request, 'animation/mainpage.html', {'genre_ani_info': genre_ani_info.items()})
+
+
+@login_required
+def genre_view(request, id):
+    user = request.user
+    genre = Genre.objects.get(id=id)
+    same_genre = Animation.objects.filter()
+    print(same_genre)
+
+    return render(request, 'animation/genrepage.html', {'genre': genre})
+
 
 
 @login_required
@@ -73,7 +86,6 @@ def show_recommend_view(request):
 def show_bookmark_view(request):
     user = request.user
     bookmarks = Bookmark.objects.filter(user=user)
-    print(bookmarks)
     ani_info = {}
     for bookmark in bookmarks:
         animation = bookmark.animation
@@ -90,8 +102,6 @@ def show_bookmark_view(request):
             'genres': genre_list
         }
 
-    print(ani_info.items())
-
     return render(request, 'animation/bookmark.html', {'ani_info': ani_info.items()})
 
 
@@ -102,7 +112,6 @@ def search_view(request):
     if search:
         search_list = animation_list.filter(Q(title__icontains=search)) #제목검색
         ani_info = []
-        print(search_list)
 
         for anime in search_list:
             img = animation_list.get(id=anime.id).img
@@ -115,8 +124,28 @@ def search_view(request):
             dic = {'img': img, 'title': title, 'genre': genre_list, 'id': anime.id}
             ani_info.append(dic)
 
-        print(ani_info)
-
         return render(request, 'animation/search_result.html', {'search': search, 'ani_info': ani_info})
     return render(request, 'animation/search_result.html')
 
+
+def more_view(request, id):
+    animation_list = Animation.objects.all()
+    more_genre = Genre.objects.get(id=id)
+    print(more_genre)
+
+    genre_ani_info = {}
+    ani_info_list = []
+
+    search_list = list(animation_list.filter(Q(genre__name__icontains=more_genre.name)))
+    for animation in search_list:
+        genres = Genre.objects.filter(animation__id=animation.id).values()
+        genre_list = []
+        for genre in genres:
+            genre_list.append(genre['name'])
+        genre_list = ", ".join(genre_list)
+        ani_info = {'title': animation.title, 'img': animation.img, 'genre': genre_list, 'id': animation.id}
+        ani_info_list.append(ani_info)
+
+        genre_ani_info[more_genre] = ani_info_list
+
+    return render(request, 'animation/more.html', {'genre_ani_info': genre_ani_info.items()})

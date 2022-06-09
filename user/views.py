@@ -100,10 +100,3 @@ def select_genre_view(request):
 
     return render(request, 'user/select_genre.html')
 
-@login_required
-def select(request):
-    if request.method == 'POST':
-        user = request.user
-        name = request.POST.get('name')
-        genre = Genre.objects.get(name=name)
-

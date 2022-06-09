@@ -39,7 +39,7 @@
                                          class="card-img-top" width="270px" height="500px">
                                 </a>
                                 <div class="card-body">
-                                    <h3 class="card-title" style="font-size: 18px;">{{ animation.title }}</h3>
+                                    <h3 class="card-title">{{ animation.title }}</h3>
                                 </div>
                             </div>
                         </div>
@@ -47,5 +47,30 @@
                 {% endfor %}
             </div>
         {% endfor %}
+
+
+        <header class="genre-header">
+            <div class="genre-name">
+                <i class="fa-solid fa-heart"></i> <span id="userliked" class="like-txt">추천</span>
+            </div>
+        </header>
+        <div class="genre">
+            {% for recommend_ani in recommend_anis_list %}
+                <a href='/detail/{{ recommend_ani.id }}'>
+                    <div class="anime-box">
+                        <div class="animation-info">
+                            <a href="/detail/{{ recommend_ani.id }}">
+                                <img src='{{ recommend_ani.img }}'
+                                     class="card-img-top" width="270px" height="500px">
+                            </a>
+                            <div class="card-body">
+                                <h3 class="card-title">{{ recommend_ani.title }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+
+        </div>
     </div>
 {% endblock %}

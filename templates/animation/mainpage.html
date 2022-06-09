@@ -51,9 +51,7 @@
 
         <header class="genre-header">
             <div class="genre-name">
-                {#                    <img src="../../static/image/{{ genre.name }}.png"#}
-                {#                         style="height: 40px; width: 40px; filter :brightness(0) invert(1);">#}
-                추천
+                <i class="fa-solid fa-heart"></i> <span id="userliked" class="like-txt">추천</span>
             </div>
         </header>
         <div class="genre">
@@ -72,8 +70,7 @@
                     </div>
                 </a>
             {% endfor %}
-            <div class="genre">
 
-
-            </div>
+        </div>
+    </div>
 {% endblock %}

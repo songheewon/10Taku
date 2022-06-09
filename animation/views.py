@@ -52,7 +52,7 @@ def main_view(request):
         genre_ani_info[main_genre] = ani_info_list
 
     # 유저 기반 추천 모델
-    if len(Recommend.objects.filter(user__id=user.id)) > 0:
+    if len(Recommend.objects.filter(user__id=user.id)) > 0 and len(Recommend.objects.all()) > len(Recommend.objects.filter(user__id=user.id)):
         user_ratings = pd.DataFrame(list(Recommend.objects.all().values()))
         user_ratings.set_index('id', inplace=False)
         user_ratings = user_ratings[['user_id', 'animation_id']]

@@ -65,14 +65,12 @@ def animation_detail(request, id):
 
     for idx in range(len(detailpage_contents_recommend)):
         detailpage_contents_recommend[idx] += 1
-    print(detailpage_contents_recommend)
 
     same_genre_ani_list = []
     for recommend_ani_id in detailpage_contents_recommend:
         same_genre_ani = Animation.objects.get(id=recommend_ani_id)
         same_genre_ani_list.append(same_genre_ani)
 
-    print(same_genre_ani_list)
 
 
     is_bookmark = Bookmark.objects.filter(user=user, animation=animation).exists()

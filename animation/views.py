@@ -5,7 +5,9 @@ from user.models import UserModel
 from django.db.models import Q
 from detail.models import Recommend, Bookmark
 import random
-
+import pandas as pd
+import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
 
 
 
@@ -23,6 +25,7 @@ def main_view(request):
     # 유저가 선택한 장르들 가져오기
     main_genres = list(user.fav_genre.all())
     animation_list = Animation.objects.all()
+
 
     # 키 = 장르 객체, 밸류 = 애니 정보 리스트가 담긴 딕셔너리 생성
     genre_ani_info = {}
@@ -48,9 +51,31 @@ def main_view(request):
 
         genre_ani_info[main_genre] = ani_info_list
 
-    #템플렛으로 보내줄때는 key, value값을 꺼낼 수 있도록 애니정보의 딕셔너리 아이템들(튜플) 보내주기
-    return render(request, 'animation/mainpage.html', {'genre_ani_info': genre_ani_info.items()})
+    # 유저 기반 추천 모델
+    if len(Recommend.objects.filter(user__id=user.id)) > 0:
+        user_ratings = pd.DataFrame(list(Recommend.objects.all().values()))
+        user_ratings.set_index('id', inplace=False)
+        user_ratings = user_ratings[['user_id', 'animation_id']]
+        user_ratings['rating'] = 1
 
+        user_ratings = user_ratings.pivot_table('rating', index='user_id', columns='animation_id')
+        user_ratings = user_ratings.fillna(0)
+        user_based_collab = cosine_similarity(user_ratings, user_ratings)
+        user_based_collab = pd.DataFrame(user_based_collab, index=user_ratings.index, columns=user_ratings.index)
+        print(user_based_collab)
+        print(user_based_collab[user.id])
+        user = user_based_collab[user.id].sort_values(ascending=False)[:5].index[1]
+        result = user_ratings.query(f"user_id == {user}").sort_values(ascending=False, by=user, axis=1)
+        recommend_anis = list(result.keys())[:5]
+
+        recommend_anis_list = []
+        for recommend_ani in recommend_anis:
+            recommend_anis_list.append(Animation.objects.get(id=recommend_ani))
+
+
+        #템플렛으로 보내줄때는 key, value값을 꺼낼 수 있도록 애니정보의 딕셔너리 아이템들(튜플) 보내주기
+        return render(request, 'animation/mainpage.html', {'genre_ani_info': genre_ani_info.items(), 'recommend_anis_list': recommend_anis_list})
+    return render(request, 'animation/mainpage.html', {'genre_ani_info': genre_ani_info.items()})
 
 
 @login_required

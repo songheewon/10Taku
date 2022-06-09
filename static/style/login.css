@@ -88,3 +88,9 @@ body {
     width: 250px;
 
 }
+
+@media screen and (max-width: 640px) {
+    .login_content {
+        margin-top: 60px;
+    }
+}

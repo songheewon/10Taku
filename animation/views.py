@@ -52,16 +52,6 @@ def main_view(request):
     return render(request, 'animation/mainpage.html', {'genre_ani_info': genre_ani_info.items()})
 
 
-@login_required
-def genre_view(request, id):
-    user = request.user
-    genre = Genre.objects.get(id=id)
-    same_genre = Animation.objects.filter()
-    print(same_genre)
-
-    return render(request, 'animation/genrepage.html', {'genre': genre})
-
-
 
 @login_required
 def show_recommend_view(request):

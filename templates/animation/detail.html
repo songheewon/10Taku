@@ -82,7 +82,7 @@
                     <span>댓글 {{ comment_count }}개 보기</span>
                 </button>
                 <a href="/bookmark/{{ animation.id }}">
-                    <button class="comment-btn">
+                    <button class="bookmark-btn">
                         {% if is_bookmark %}
                             북마크 삭제
                         {% else %}
@@ -91,7 +91,7 @@
                     </button>
                 </a>
                 <a href="/recommend_toggle/{{ animation.id }}">
-                    <button class="comment-btn">
+                    <button class="recommend-btn">
                         {% if is_recommend %}
                             추천 취소
                         {% else %}

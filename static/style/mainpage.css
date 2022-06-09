@@ -54,7 +54,7 @@
     float: left;
     margin-left: 13.5%;
     width: 1560px;
-
+    flex-wrap: wrap;
 }
 
 .anime-box {
@@ -64,6 +64,7 @@
 .card-img-top {
     width: 200px;
     height: 300px;
+    border-radius: 30px;
 }
 
 .card-title {

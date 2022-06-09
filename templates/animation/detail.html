@@ -36,9 +36,9 @@
                     </div>
                     <div class="anime-description-detail">
                         {% if animation.original_title == '' %}
-                            <p class="anime-detail" style="height: 20px;">원제 정보 없음</p>
+                            <p class="anime-detail-original">원제 정보 없음</p>
                         {% else %}
-                            <p class="anime-detail" style="font-size: 14px; height: 20px;">{{ animation.original_title }}</p>
+                            <p class="anime-detail-original">{{ animation.original_title }}</p>
                         {% endif %}
 
                         {% if genre == '' %}
@@ -48,9 +48,9 @@
                         {% endif %}
 
                         {% if animation.company == '' %}
-                            <p class="anime-detail">제작사 정보 없음</p>
+                            <p class="anime-detail-company">제작사 정보 없음</p>
                         {% else %}
-                            <p class="anime-detail">{{ animation.company }}</p>
+                            <p class="anime-detail-company">{{ animation.company }}</p>
                         {% endif %}
 
                         {% if animation.rated == '' %}

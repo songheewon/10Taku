@@ -79,14 +79,16 @@ body::-webkit-scrollbar-track {
     text-align: center;
     margin-top: 21px;
     margin-left: 70px;
-    width: 300px;
+    max-width: 300px;
+    width: 100%;
 
 }
 
 .search-box {
     text-align: center;
     height: 30px;
-    width: 300px;
+    max-width: 300px;
+    width: 100%;
     background-color: #f0f0f0;
     border-radius: 10px;
     border-width: 0;
@@ -94,7 +96,7 @@ body::-webkit-scrollbar-track {
     cursor: text;
 }
 
-.fa-solid fa-magnifying-glass {
+.fa-solid {
     display: inline-block;
     text-align: left;
     width: 5%;
@@ -135,14 +137,14 @@ body::-webkit-scrollbar-track {
 }
 
 .logout-txt {
-    margin-left: 10px;
+    margin-left: 16px;
     margin-top: -3px;
     color: white;
     text-decoration: none;
 }
 
-.bookmark-txt, .like-txt, .user-txt, .random-txt{
-    margin-left: 10px;
+.bookmark-txt, .like-txt, .user-txt, .random-txt {
+    margin-left: 16px;
     margin-top: -3px;
 }
 
@@ -172,17 +174,47 @@ body::-webkit-scrollbar-track {
 }
 
 @media screen and (max-width: 640px) {
-
-    .search {
-        display: none;
-    }
-
-}
-
-@media screen and (max-width: 640px) {
-
     .username {
         display: none;
     }
 
+    .bookmark, .random, .liked, .logout {
+        transform: scale(0.8);
+    }
+
+    .bookmark:hover {
+        cursor: pointer;
+        transform: scale(0.9);
+        transition: all 0.25s ease-in-out;
+    }
+
+    .liked:hover {
+        cursor: pointer;
+        transform: scale(0.9);
+        transition: all 0.25s ease-in-out;
+    }
+
+    .random:hover {
+        cursor: pointer;
+        transform: scale(0.9);
+        transition: all 0.25s ease-in-out;
+    }
+
+    .logout:hover {
+        cursor: pointer;
+        transform: scale(0.9);
+        transition: all 0.25s ease-in-out;
+        color: red;
+    }
+
+    .bookmark-txt, .random-txt, .like-txt, .logout-txt {
+        margin-left: 16px;
+    }
+
+}
+
+@media screen and (max-width: 780px) {
+    .search {
+        display: none;
+    }
 }

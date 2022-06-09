@@ -25,6 +25,7 @@
             <div class="genre">
                 <!-- 장르별 애니메이션 출력 부분 -->
                 {% for animation in animations %}
+<<<<<<< HEAD
                     <div class="anime-box">
                         <div class="animation-info">
                             <a href="/detail/{{ animation.id }}">
@@ -34,6 +35,18 @@
                             <div class="card-body">
                                 <h3 class="card-title" style="font-size: 18px;">{{ animation.title }}</h3>
                                 <h5 class="card-genre">{{ animation.genres }}</h5>
+=======
+                    <a href='/detail/{{ animation.id }}'>
+                        <div class="anime-box">
+                            <div class="animation-info">
+                                <a href="/detail/{{ animation.id }}">
+                                    <img src='{{ animation.img }}'
+                                         class="card-img-top" width="270px" height="500px">
+                                </a>
+                                <div class="card-body">
+                                    <h3 class="card-title">{{ animation.title }}</h3>
+                                </div>
+>>>>>>> detail_kyumin
                             </div>
                         </div>
                     </div>

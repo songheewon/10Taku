@@ -53,8 +53,8 @@ def animation_detail(request, id):
         genre_vector.toarray(),
         columns=list(sorted(genre_dic.keys(), key=lambda x: genre_dic[x]))
     )
-
-    knn_dist, idx = neighbors.kneighbors([genre_info.iloc[0, :]])
+    list_idx=animation.id-1 # 내가 만든 리스트는 0부터, DB는 1부터라서 안 맞는 거였음
+    knn_dist, idx = neighbors.kneighbors([genre_info.iloc[list_idx, :]]) # 여기에 list_idx로 참조하면 DB는 list_idx+1값을 보니까 맞게 불러옴
     detailpage_contents_recommend = np.append(detailpage_contents_recommend, np.array(idx), axis=0)
     detailpage_contents_recommend = detailpage_contents_recommend.tolist()
     detailpage_contents_recommend = detailpage_contents_recommend[0]
@@ -68,6 +68,8 @@ def animation_detail(request, id):
     is_recommend = Recommend.objects.filter(user=user, animation=animation).exists()
     comments = Comment.objects.filter(animation=animation).order_by('-created_at')
     comment_count = len(Comment.objects.filter(animation=animation).order_by('-created_at'))
+
+
 
     #컨텐츠 기반 장르 5가지 추천 코드
     #협업필터링 유저추천 5가지 애니메이션 코드

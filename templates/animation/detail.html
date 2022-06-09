@@ -103,18 +103,19 @@
         </div>
         <!--- 오른쪽단 애니추천 ----->
         <div class="right-body">
-            <div class="genre-recommend">
+            < class="genre-recommend">
                 <div class="same-genre">
                     같은 장르 애니
                 </div>
-                <div>
-                    <img src="https://img2.yna.co.kr/photo/yna/YH/2013/09/08/PYH2013090801520000500_P2.jpg"
-                         class="recommend-img"> <span class="recommend-title">진격의 거인</span>
-                </div>
-                <div>
-                    <img src="https://img2.yna.co.kr/photo/yna/YH/2013/09/08/PYH2013090801520000500_P2.jpg"
-                         class="recommend-img"> <span class="recommend-title">진격의 거인</span>
-                </div>
+            {% for same_genre_ani in same_genre_ani_list %}
+                <a href="/detail/{{ same_genre_ani.id }}" style="text-decoration: none;">
+                    <div>
+                        <img src="{{ same_genre_ani.img }}"
+                             class="recommend-img"> <span class="recommend-title">{{ same_genre_ani.title }}</span>
+                    </div>
+                </a>
+            {% endfor %}
+
             </div>
             <div class="user-recommend">
                 <div class="same-anime-user">

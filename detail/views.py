@@ -38,12 +38,16 @@ def animation_detail(request, id):
         for i in info:
             temp.append(i['name'])
         genre_name_list.append(temp)
+    print(genre_name_list)
     genre_name_list = list(map(str, genre_name_list))
+    print(genre_name_list)
     cv = CountVectorizer()
 
     genre_vector = cv.fit_transform(list(map(str, genre_name_list)))  # 장르 벡터화
+    print(genre_vector)
 
     genre_dic = cv.vocabulary_  # {'sf': 0, '가족': 1 ....}의 dictionary 형태
+    print(genre_dic)
 
     neighbors = NearestNeighbors(n_neighbors=6).fit(genre_vector)
 
@@ -63,11 +67,20 @@ def animation_detail(request, id):
         detailpage_contents_recommend[idx] += 1
     print(detailpage_contents_recommend)
 
+    same_genre_ani_list = []
+    for recommend_ani_id in detailpage_contents_recommend:
+        same_genre_ani = Animation.objects.get(id=recommend_ani_id)
+        same_genre_ani_list.append(same_genre_ani)
+
+    print(same_genre_ani_list)
+
 
     is_bookmark = Bookmark.objects.filter(user=user, animation=animation).exists()
     is_recommend = Recommend.objects.filter(user=user, animation=animation).exists()
     comments = Comment.objects.filter(animation=animation).order_by('-created_at')
     comment_count = len(Comment.objects.filter(animation=animation).order_by('-created_at'))
+
+
 
     #컨텐츠 기반 장르 5가지 추천 코드
     #협업필터링 유저추천 5가지 애니메이션 코드
@@ -78,7 +91,7 @@ def animation_detail(request, id):
         'is_recommend': is_recommend,
         'comments': comments,
         'comment_count': comment_count,
-        'recommend_animations': detailpage_contents_recommend,
+        'same_genre_ani_list': same_genre_ani_list,
     })
 
 

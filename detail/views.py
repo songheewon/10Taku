@@ -49,16 +49,16 @@ def animation_detail(request, id):
     genre_dic = cv.vocabulary_  # {'sf': 0, '가족': 1 ....}의 dictionary 형태
     print(genre_dic)
 
-    neighbors = NearestNeighbors(n_neighbors=6).fit(genre_vector)
+    neighbors = NearestNeighbors(n_neighbors=5).fit(genre_vector)
 
-    detailpage_contents_recommend = np.zeros((0, 6), int)
+    detailpage_contents_recommend = np.zeros((0, 5), int)
 
     genre_info = pd.DataFrame(
         genre_vector.toarray(),
         columns=list(sorted(genre_dic.keys(), key=lambda x: genre_dic[x]))
     )
-
-    knn_dist, idx = neighbors.kneighbors([genre_info.iloc[0, :]])
+    list_idx=animation.id-1 # 내가 만든 리스트는 0부터, DB는 1부터라서 안 맞는 거였음
+    knn_dist, idx = neighbors.kneighbors([genre_info.iloc[list_idx, :]]) # 여기에 list_idx로 참조하면 DB는 list_idx+1값을 보니까 맞게 불러옴
     detailpage_contents_recommend = np.append(detailpage_contents_recommend, np.array(idx), axis=0)
     detailpage_contents_recommend = detailpage_contents_recommend.tolist()
     detailpage_contents_recommend = detailpage_contents_recommend[0]

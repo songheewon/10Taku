@@ -53,7 +53,8 @@
     flex-direction: row;
     float: left;
     margin-left: 13.5%;
-    width: 1560px;
+    max-width: 1560px;
+    width: 100%;
     flex-wrap: wrap;
 }
 
@@ -70,7 +71,7 @@
 .card-title {
     color: white;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 18px;
     width: 170px;
 }
 
@@ -89,4 +90,25 @@
 .animation-info:hover {
     transform: scale(1.1);
     position: relative;
+}
+
+@media screen and (max-width: 640px) {
+    .genre {
+        margin-left: 2%;
+    }
+    .genre-header {
+        margin-top: 15%;
+        margin-bottom: 4%;
+        margin-right: 10%;
+        width: 420px;
+    }
+    .card-img-top {
+        width: 120px;
+        height: 150px;
+        border-radius: 30%;
+    }
+    .card-title {
+        width: 100px;
+        font-size: 14px;
+    }
 }

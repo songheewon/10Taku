@@ -3,20 +3,23 @@
     flex-direction: row;
     margin-top: 110px;
     height: 1000px;
-    max-width: 1300px;
+    max-width: 1220px;
+    width: 100%;
     background-color: transparent;
     font-family: 'Poor Story', cursive;
 }
 
 .left-body {
-    width: 800px;
+    max-width: 800px;
+    width: 100%;
     height: 500px;
     margin-top: 10px;
 }
 
 .right-body {
     background-image: linear-gradient(to right bottom, #1f1f1f, #242424, #282828, #2d2d2d, #323232);
-    width: 400px;
+    max-width: 370px;
+    width: 100%;
     height: 800px;
     margin-left: 30px;
     margin-top: 24px;
@@ -78,7 +81,8 @@
     justify-content: space-around;
     white-space: nowrap;
 }
-.anime-description-detail{
+
+.anime-description-detail {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -90,10 +94,33 @@
     margin-top: 2px;
 }
 
+.anime-detail-original{
+    margin-left: 10px;
+    margin-top: 2px;
+    height: 20px;
+    font-size: 14px;
+}
+
+.anime-detail-company {
+    margin-left: 10px;
+    margin-top: 2px;
+}
+
 .detail-img {
     width: 300px;
     height: 410px;
     padding: 20px 0 20px 20px;
+}
+
+.recommended-anime {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+    height: 60px;
+    margin-right: 10px;
+    margin-top: 10px;
 }
 
 .recommend-img {
@@ -102,7 +129,7 @@
     margin-top: 10px;
 }
 
-.comment-btn,.recommend-btn, .bookmark-btn {
+.comment-btn, .recommend-btn, .bookmark-btn {
     background-color: rgb(45, 45, 45);
     color: white;
     border: none;
@@ -117,20 +144,19 @@
 }
 
 .comment-btn:hover {
-    cursor : pointer;
+    cursor: pointer;
     transform: scale(1.1);
 }
 
 .bookmark-btn:hover {
-    cursor : pointer;
+    cursor: pointer;
     transform: scale(1.1);
 }
 
 .recommend-btn:hover {
-    cursor : pointer;
+    cursor: pointer;
     transform: scale(1.1);
 }
-
 
 
 .modal-header {
@@ -159,7 +185,9 @@
     background-color: grey;
 }
 
-body.modal-open { overflow: hidden; }
+body.modal-open {
+    overflow: hidden;
+}
 
 .genre-recommend {
     margin-left: 10px;
@@ -171,8 +199,9 @@ body.modal-open { overflow: hidden; }
 }
 
 .recommend-title {
-    color:white;
+    color: white;
     margin-left: 7px;
+    max-width: 280px;
 }
 
 .recommend-count {
@@ -192,12 +221,12 @@ body.modal-open { overflow: hidden; }
 }
 
 .same-genre {
-    color:white;
+    color: white;
     margin-top: 10px;
 }
 
 .same-anime-user {
-    color:white;
+    color: white;
     border-top: 1px solid rgb(55, 55, 55);
     margin-top: 10px;
     padding-top: 5px;
@@ -206,3 +235,65 @@ body.modal-open { overflow: hidden; }
 .original-title {
     height: 20px;
 }
+
+
+@media screen and (max-width: 780px) {
+    .detail-body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left-body {
+        margin-top: -20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        max-height: 860px;
+        height: 100%;
+
+    }
+
+    .right-body {
+        margin-top: 18px;
+        width: 440px;
+
+    }
+
+
+}
+
+@media screen and (max-width: 640px) {
+    .anime-title {
+        font-size: 16px;
+    }
+
+    .bookmark-btn, .comment-btn, .recommend-btn {
+        width: 100px;
+        font-size: 12px;
+    }
+
+    .detail-img {
+        width: 240px;
+        height: 350px;
+        padding: 20px 0 20px 20px;
+    }
+    .original-title {
+        display: none;
+    }
+    .anime-detail-original {
+        display: none;
+    }
+    .anime-detail-company {
+        height: 20px;
+        font-size: 14px;
+    }
+    .anime-detail {
+        height: 22px;
+        font-size: 14px;
+    }
+    .recommend-count {
+        font-size: 16px;
+    }
+
+
+}
+

@@ -103,19 +103,22 @@
         </div>
         <!--- 오른쪽단 애니추천 ----->
         <div class="right-body">
-            < class="genre-recommend">
+            <div class="genre-recommend">
                 <div class="same-genre">
                     같은 장르 애니
                 </div>
-            {% for same_genre_ani in same_genre_ani_list %}
-                <a href="/detail/{{ same_genre_ani.id }}" style="text-decoration: none;">
-                    <div>
-                        <img src="{{ same_genre_ani.img }}"
-                             class="recommend-img"> <span class="recommend-title">{{ same_genre_ani.title }}</span>
-                    </div>
-                </a>
-            {% endfor %}
-
+                {% for same_genre_ani in same_genre_ani_list %}
+                    <a href="/detail/{{ same_genre_ani.id }}" style="text-decoration: none;">
+                        <div class="recommended-anime">
+                            <div>
+                                <img src="{{ same_genre_ani.img }}" class="recommend-img">
+                            </div>
+                            <div class="recommend-title">
+                                {{ same_genre_ani.title }}
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
             </div>
             <div class="user-recommend">
                 <div class="same-anime-user">

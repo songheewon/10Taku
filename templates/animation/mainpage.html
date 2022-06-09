@@ -23,7 +23,7 @@
                 <button class="more-button">+ 더보기</button>
             </header>
             <div class="genre">
-                <!-- 하나의 애니메이션 정보(사진, 제목, 장르) 출력 단위 -->
+                <!-- 장르별 애니메이션 출력 부분 -->
                 {% for animation in animations %}
                     <a href='/detail/{{ animation.id }}'>
                         <div class="anime-box">
@@ -34,7 +34,7 @@
                                 </a>
                                 <div class="card-body">
                                     <h3 class="card-title" style="font-size: 18px;">{{ animation.title }}</h3>
-                                    <h5 class="card-genre">{{ animation.genres }}</h5>
+                                    <h5 class="card-genre">{{ animation.genre }}</h5>
                                 </div>
                             </div>
                         </div>
@@ -42,9 +42,5 @@
                 {% endfor %}
             </div>
         {% endfor %}
-
-
-
-        <!-- 장르별 애니메이션 출력 부분 -->
     </div>
 {% endblock %}

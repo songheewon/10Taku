@@ -64,9 +64,9 @@ def main_view(request):
         user_based_collab = pd.DataFrame(user_based_collab, index=user_ratings.index, columns=user_ratings.index)
         print(user_based_collab)
         print(user_based_collab[user.id])
-        user = user_based_collab[user.id].sort_values(ascending=False)[:5].index[1]
+        user = user_based_collab[user.id].sort_values(ascending=False).index[1]
         result = user_ratings.query(f"user_id == {user}").sort_values(ascending=False, by=user, axis=1)
-        recommend_anis = list(result.keys())[:5]
+        recommend_anis = list(result.keys())[:6]
 
         recommend_anis_list = []
         for recommend_ani in recommend_anis:

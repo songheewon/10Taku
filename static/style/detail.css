@@ -322,5 +322,8 @@ body.modal-open {
         margin-left: 7%;
         margin-top: 30%;
     }
+    .summary-text, .summary-txt {
+        font-size: 12px;
+    }
 }
 

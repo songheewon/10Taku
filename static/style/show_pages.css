@@ -141,4 +141,25 @@
     }
 }
 
+@media screen and (max-width: 390px) {
+
+    .card-img-top {
+        width: 80px;
+        height: 110px;
+    }
+    .card-title {
+        width: 52px;
+        font-size: 10px;
+    }
+    .card-genre {
+        width: 52px;
+        font-size: 8px;
+    }
+    .anime-box{
+        width: 80px;
+        margin-right: 15px;
+        margin-left: 25px;
+    }
+}
+
 

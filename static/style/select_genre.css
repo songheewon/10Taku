@@ -2,6 +2,8 @@
     display: inline-block;
     width: 100%;
     margin-top: 2%;
+    height: 1000px;
+    background-color: transparent;
     text-align: center;
     justify-content: center;
     font-family: 'Poor Story', cursive;

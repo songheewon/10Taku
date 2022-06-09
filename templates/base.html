@@ -3,12 +3,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %} | 10Taku</title>
     <!-- CSS -->
     {% block css %}
 
     {% endblock %}
     <link href="{% static 'style/base.css' %}" rel="stylesheet">
+
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -33,7 +35,7 @@
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input id="search_input_box" aria-label="입력 검색" class="search_input_box" autocapitalize="none"
-                       placeholder="제목 검색" type="text" name="search"value="">
+                       placeholder="제목 검색" type="text" name="search" value="">
             </div>
         </form>
     </div>

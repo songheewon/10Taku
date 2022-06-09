@@ -105,9 +105,10 @@
         <div class="right-body">
             <div class="genre-recommend">
                 <div class="same-genre">
-                    같은 장르 애니
+                    비슷한 애니
                 </div>
                 {% for same_genre_ani in same_genre_ani_list %}
+                    {% if same_genre_ani != animation %}
                     <a href="/detail/{{ same_genre_ani.id }}" style="text-decoration: none;">
                         <div class="recommended-anime">
                             <div>
@@ -118,32 +119,8 @@
                             </div>
                         </div>
                     </a>
+                    {% endif %}
                 {% endfor %}
-            </div>
-            <div class="user-recommend">
-                <div class="same-anime-user">
-                    이 애니를 본사람이 즐긴 애니
-                </div>
-                <div>
-                    <img src="https://img2.yna.co.kr/photo/yna/YH/2013/09/08/PYH2013090801520000500_P2.jpg"
-                         class="recommend-img"> <span class="recommend-title">진격의 거인</span>
-                </div>
-                <div>
-                    <img src="https://img2.yna.co.kr/photo/yna/YH/2013/09/08/PYH2013090801520000500_P2.jpg"
-                         class="recommend-img"> <span class="recommend-title">진격의 거인</span>
-                </div>
-                <div>
-                    <img src="https://img2.yna.co.kr/photo/yna/YH/2013/09/08/PYH2013090801520000500_P2.jpg"
-                         class="recommend-img"> <span class="recommend-title">진격의 거인</span>
-                </div>
-                <div>
-                    <img src="https://img2.yna.co.kr/photo/yna/YH/2013/09/08/PYH2013090801520000500_P2.jpg"
-                         class="recommend-img"> <span class="recommend-title">진격의 거인</span>
-                </div>
-                <div>
-                    <img src="https://img2.yna.co.kr/photo/yna/YH/2013/09/08/PYH2013090801520000500_P2.jpg"
-                         class="recommend-img"> <span class="recommend-title">진격의 거인</span>
-                </div>
             </div>
         </div>
         <!-- 댓글 모달 -->

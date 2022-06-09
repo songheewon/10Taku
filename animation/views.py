@@ -127,3 +127,25 @@ def search_view(request):
         return render(request, 'animation/search_result.html', {'search': search, 'ani_info': ani_info})
     return render(request, 'animation/search_result.html')
 
+
+def more_view(request, id):
+    animation_list = Animation.objects.all()
+    more_genre = Genre.objects.get(id=id)
+    print(more_genre)
+
+    genre_ani_info = {}
+    ani_info_list = []
+
+    search_list = list(animation_list.filter(Q(genre__name__icontains=more_genre.name)))
+    for animation in search_list:
+        genres = Genre.objects.filter(animation__id=animation.id).values()
+        genre_list = []
+        for genre in genres:
+            genre_list.append(genre['name'])
+        genre_list = ", ".join(genre_list)
+        ani_info = {'title': animation.title, 'img': animation.img, 'genre': genre_list, 'id': animation.id}
+        ani_info_list.append(ani_info)
+
+        genre_ani_info[more_genre] = ani_info_list
+
+    return render(request, 'animation/more.html', {'genre_ani_info': genre_ani_info.items()})

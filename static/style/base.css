@@ -237,31 +237,68 @@ body::-webkit-scrollbar-track {
 
     .bookmark:hover {
         cursor: pointer;
-        transform: scale(0.9);
+        transform: scale(0.8);
         transition: all 0.25s ease-in-out;
     }
 
     .liked:hover {
         cursor: pointer;
-        transform: scale(0.9);
+        transform: scale(0.8);
         transition: all 0.25s ease-in-out;
     }
 
     .random:hover {
         cursor: pointer;
-        transform: scale(0.9);
+        transform: scale(0.8);
         transition: all 0.25s ease-in-out;
     }
 
     .logout:hover {
         cursor: pointer;
-        transform: scale(0.9);
+        transform: scale(0.8);
         transition: all 0.25s ease-in-out;
         color: red;
     }
 
     .bookmark-txt, .random-txt, .like-txt, .logout-txt {
         margin-left: 16px;
+    }
+
+}
+
+@media screen and (max-width: 390px) {
+    .bookmark, .random, .liked, .logout {
+        transform: scale(0.6);
+        margin-left: -50px;
+        margin-right: -30px;
+    }
+    .random {
+        margin-right: -44px;
+        margin-left: -60px;
+    }
+    .bookmark:hover {
+        cursor: pointer;
+        transform: scale(0.7);
+        transition: all 0.25s ease-in-out;
+    }
+
+    .liked:hover {
+        cursor: pointer;
+        transform: scale(0.7);
+        transition: all 0.25s ease-in-out;
+    }
+
+    .random:hover {
+        cursor: pointer;
+        transform: scale(0.7);
+        transition: all 0.25s ease-in-out;
+    }
+
+    .logout:hover {
+        cursor: pointer;
+        transform: scale(0.7);
+        transition: all 0.25s ease-in-out;
+        color: red;
     }
 
 }

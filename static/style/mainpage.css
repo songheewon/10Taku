@@ -145,4 +145,29 @@
         width: 93px;
         font-size: 14px;
     }
+    .genre-name {
+        transform: scale(0.8);
+    }
+    .more-button {
+        transform: scale(0.9);
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .genre-header {
+        margin-top: 20%;
+        max-width: 320px;
+    }
+    .card-img-top {
+        width: 80px;
+        height: 100px;
+    }
+    .card-title {
+        width: 80px;
+        font-size: 14px;
+    }
+    .genre-name, .more-button {
+        transform: scale(0.7);
+    }
+
 }

@@ -8,5 +8,4 @@ urlpatterns = [
     path('bookmark/', views.show_bookmark_view, name='bookmark_page'),
     path('search/', views.search_view, name='search_animation'),
     path('more/<int:id>/', views.more_view, name='more_page'),
-
 ]

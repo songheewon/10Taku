@@ -1,12 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Genre, Animation
-from user.models import UserModel
 from django.db.models import Q
 from detail.models import Recommend, Bookmark
 import random
 import pandas as pd
-import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
 
@@ -62,8 +60,7 @@ def main_view(request):
         user_ratings = user_ratings.fillna(0)
         user_based_collab = cosine_similarity(user_ratings, user_ratings)
         user_based_collab = pd.DataFrame(user_based_collab, index=user_ratings.index, columns=user_ratings.index)
-        print(user_based_collab)
-        print(user_based_collab[user.id])
+
         user = user_based_collab[user.id].sort_values(ascending=False).index[1]
         result = user_ratings.query(f"user_id == {user}").sort_values(ascending=False, by=user, axis=1)
         recommend_anis = list(result.keys())[:6]
@@ -162,9 +159,9 @@ def more_view(request, id):
         genre_list = []
         for genre in genres:
             genre_list.append(genre['name'])
-        print(genre_list)
+
         genre_list = ", ".join(genre_list)
-        print(genre_list)
+
         ani_info = {'title': animation.title, 'img': animation.img, 'genre': genre_list, 'id': animation.id}
         ani_info_list.append(ani_info)
 

@@ -1,7 +1,8 @@
 from django.db import models
 from animation.models import Animation
 from user.models import UserModel
-# Create your models here.
+
+
 class Comment(models.Model):
     class Meta:
         db_table = "comment"

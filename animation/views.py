@@ -1,12 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Genre, Animation
-from user.models import UserModel
 from django.db.models import Q
 from detail.models import Recommend, Bookmark
 import random
 import pandas as pd
-import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
 

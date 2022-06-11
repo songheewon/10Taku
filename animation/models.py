@@ -1,5 +1,5 @@
 from django.db import models
-    # Create your models here.
+
 class Genre(models.Model):
     class Meta:
         db_table = "genre"

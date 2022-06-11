@@ -1,8 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.conf import settings
 from animation.models import Genre
-# from detail.models import Recommend
+
 
 
 class UserModel(AbstractUser):

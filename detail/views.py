@@ -42,9 +42,7 @@ def animation_detail(request, id):
 
     genre_vector = cv.fit_transform(list(map(str, genre_name_list)))  # 장르 벡터화
 
-
     genre_dic = cv.vocabulary_  # {'sf': 0, '가족': 1 ....}의 dictionary 형태
-
 
     neighbors = NearestNeighbors(n_neighbors=10).fit(genre_vector)
 

@@ -60,5 +60,5 @@ AI가 사용자에게 애니메이션을 추천해주는 프로그램입니다.
 ![10takuERD](https://user-images.githubusercontent.com/104349901/172278311-24187929-cba3-4619-932f-e5cdcb172dce.PNG)
 
 ## 📢 <a href="https://www.youtube.com">발표 영상</a>
-
+<a href="https://www.youtube.com/watch?v=0AprfihRypc">YouTube 바로가기</a>
 
